@@ -6,7 +6,7 @@ E se fosse com você?
 
 Um terremoto no meio da noite. O avião perdendo altitude. A água subindo dentro do carro. Um tsunami no horizonte. Perdido no deserto sem uma gota d'água.
 
-No Sobrevivência Dark você entra nos piores cenários que alguém pode enfrentar e descobre, passo a passo, o que separa quem sobrevive de quem não volta. Desastres naturais, acidentes, catástrofes e situações extremas contadas do jeito mais real possível, com base em casos verdadeiros e no que dizem especialistas em resgate e sobrevivência.
+No Sobrevivência Dark, cada vídeo é um POV: VOCÊ está dentro da situação, e a gente mostra, passo a passo, como sair vivo dela. Desastres naturais, acidentes, catástrofes e situações extremas contadas do jeito mais real possível, com base em casos verdadeiros e no que dizem especialistas em resgate e sobrevivência.
 
 Cada segundo conta. Cada decisão pode ser a última.
 
@@ -20,10 +20,10 @@ Você sobreviveria?
 
 ## TikTok (até 80 caracteres)
 
-Você sobreviveria? 🔺 Os piores cenários e como sair vivo deles
+POV: você precisa sobreviver 🔺 Como sair vivo de cada situação
 
 ## Instagram (até 150 caracteres)
 
 Você sobreviveria? 🔺
-Desastres, acidentes e situações extremas: o que separa quem vive de quem não volta.
+POV: você está no pior cenário. Veja como sair vivo.
 Novos vídeos toda semana ⬇️
