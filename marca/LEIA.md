@@ -5,6 +5,6 @@
 - `capa-youtube-guia.png`: a mesma capa com a área segura marcada em verde (só para conferência, não suba essa).
 
 Identidade: preto #060606, vermelho #e3141f, osso #ece6dc. Fontes Bebas Neue (títulos) e Oswald (apoio), em `fonte/`.
-Símbolo: linha de batimento cardíaco + anel de contagem regressiva com os últimos segundos em vermelho.
+Símbolo: triângulo vermelho de perigo com uma pessoa fugindo (opção 4, escolhida pelo dono em 05/11/2026). As outras opções ficam em `opcoes/`.
 
 Para mudar: edite `logo.html` / `capa.html` e rode `node marca/render.js`.

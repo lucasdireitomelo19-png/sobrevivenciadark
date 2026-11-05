@@ -1,49 +1,26 @@
 <!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><title>Logo Sobrevivência Dark</title>
 <link rel="stylesheet" href="base.css">
-<style>
-  body { width: 1080px; height: 1080px; }
-  svg { display: block; }
-</style></head>
+<style> body { width: 1080px; height: 1080px; } svg { display: block; } </style></head>
 <body>
+<!-- Logo oficial (opção 4 escolhida pelo dono em 05/11/2026): triângulo de perigo com pessoa fugindo -->
 <svg id="art" width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <radialGradient id="fundo" cx="50%" cy="46%" r="60%">
-      <stop offset="0" stop-color="#2a0a0c"/>
-      <stop offset="0.55" stop-color="#0d0606"/>
-      <stop offset="1" stop-color="#040404"/>
-    </radialGradient>
-    <filter id="brilho" x="-20%" y="-50%" width="140%" height="200%">
-      <feGaussianBlur stdDeviation="9" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="grao">
-      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
-      <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.07 0"/>
-    </filter>
+    <radialGradient id="fundoV" cx="50%" cy="45%" r="65%">
+      <stop offset="0" stop-color="#1c0607"/><stop offset="1" stop-color="#040404"/></radialGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="18" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="grao"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.08 0"/></filter>
   </defs>
-  <rect width="1080" height="1080" fill="url(#fundo)"/>
-  <g id="marcas"></g>
-  <text x="540" y="505" text-anchor="middle" font-family="Bebas" font-size="182" letter-spacing="3" fill="#ece6dc">SOBREVIVÊNCIA</text>
-  <path class="ecg" filter="url(#brilho)" stroke-width="13"
-        d="M190 605 H420 L448 580 L474 632 L508 535 L544 690 L576 588 L600 605 H890"/>
-  <text x="540" y="820" text-anchor="middle" font-family="Bebas" font-size="168" letter-spacing="34" fill="#e3141f">DARK</text>
+  <rect width="1080" height="1080" fill="url(#fundoV)"/>
+  <g id="emblema">
+    <path d="M540 170 L930 860 L150 860 Z" fill="none" stroke="#e3141f" stroke-width="46" stroke-linejoin="round" filter="url(#glow)"/>
+    <g fill="#ece6dc" transform="translate(540 600) scale(1.25)">
+      <circle cx="28" cy="-150" r="30"/>
+      <path d="M-10 -110 L40 -112 L70 -50 L120 -30 L112 -10 L52 -30 L36 -60 L22 0 L80 50 L70 150 L44 148 L52 66 L4 30 L-30 110 L-110 120 L-108 94 L-52 86 L-20 -10 L-6 -80 L-40 -60 L-60 -10 L-84 -18 L-56 -86 Z"/>
+    </g>
+  </g>
   <rect width="1080" height="1080" filter="url(#grao)"/>
 </svg>
-<script>
-  // anel de contagem regressiva: 60 marcas, as ultimas 9 em vermelho (o tempo acabando)
-  const g = document.getElementById('marcas'), ns = 'http://www.w3.org/2000/svg';
-  for (let i = 0; i < 60; i++) {
-    const a = (i / 60) * Math.PI * 2 - Math.PI / 2, longa = i % 5 === 0;
-    const r1 = 492, r2 = longa ? 458 : 474;
-    const l = document.createElementNS(ns, 'line');
-    l.setAttribute('x1', 540 + r1 * Math.cos(a)); l.setAttribute('y1', 540 + r1 * Math.sin(a));
-    l.setAttribute('x2', 540 + r2 * Math.cos(a)); l.setAttribute('y2', 540 + r2 * Math.sin(a));
-    const fim = i >= 51;
-    l.setAttribute('stroke', fim ? '#e3141f' : '#5c5651');
-    l.setAttribute('stroke-width', longa ? 7 : 4);
-    l.setAttribute('stroke-linecap', 'round');
-    g.appendChild(l);
-  }
-</script>
 </body></html>

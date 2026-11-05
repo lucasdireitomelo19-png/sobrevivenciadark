@@ -37,6 +37,8 @@
       <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/>
       <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.06 0"/>
     </filter>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="18" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
     <filter id="borrao"><feGaussianBlur stdDeviation="2.5"/></filter>
   </defs>
 
@@ -47,16 +49,21 @@
   <path id="serra2" fill="#120707"/>
   <path id="serra1" fill="#070404"/>
 
-  <!-- linha de batimento atravessando a capa toda (aparece na TV) -->
-  <path class="ecg" filter="url(#brilho)" stroke-width="9" opacity="0.95"
-        d="M0 720 H880 L905 690 L928 752 L956 660 L986 772 L1010 706 L1028 720
-           H1532 L1557 690 L1580 752 L1608 660 L1638 772 L1662 706 L1680 720 H2560"/>
-
-  <!-- título dentro da área segura -->
-  <g text-anchor="middle">
-    <text x="1280" y="660" font-family="Bebas" font-size="190" letter-spacing="6" fill="#ece6dc">SOBREVIVÊNCIA <tspan fill="#e3141f">DARK</tspan></text>
-    <text x="1280" y="845" font-family="Oswald" font-weight="500" font-size="64" letter-spacing="14" fill="#ece6dc">VOCÊ SOBREVIVERIA?</text>
-    <text x="1280" y="912" font-family="Oswald" font-weight="500" font-size="34" letter-spacing="10" fill="#8a8580">NOVOS VÍDEOS TODA SEMANA</text>
+  <!-- emblema (mesmo da logo) + nome, tudo dentro da área segura -->
+  <g transform="translate(582 536) scale(0.355)">
+    <g id="emblema">
+        <path d="M540 170 L930 860 L150 860 Z" fill="none" stroke="#e3141f" stroke-width="46" stroke-linejoin="round" filter="url(#glow)"/>
+        <g fill="#ece6dc" transform="translate(540 600) scale(1.25)">
+          <circle cx="28" cy="-150" r="30"/>
+          <path d="M-10 -110 L40 -112 L70 -50 L120 -30 L112 -10 L52 -30 L36 -60 L22 0 L80 50 L70 150 L44 148 L52 66 L4 30 L-30 110 L-110 120 L-108 94 L-52 86 L-20 -10 L-6 -80 L-40 -60 L-60 -10 L-84 -18 L-56 -86 Z"/>
+        </g>
+      </g>
+  </g>
+  <g text-anchor="start">
+    <text x="1000" y="700" font-family="Bebas" font-size="146" letter-spacing="4" fill="#ece6dc">SOBREVIVÊNCIA <tspan fill="#e3141f">DARK</tspan></text>
+    <rect x="1004" y="730" width="1003" height="6" fill="#e3141f"/>
+    <text x="1004" y="812" font-family="Oswald" font-weight="500" font-size="58" letter-spacing="12" fill="#ece6dc">VOCÊ SOBREVIVERIA?</text>
+    <text x="1004" y="874" font-family="Oswald" font-weight="500" font-size="32" letter-spacing="9" fill="#8a8580">NOVOS VÍDEOS TODA SEMANA</text>
   </g>
 
   <rect width="2560" height="1440" fill="url(#vinheta)"/>
