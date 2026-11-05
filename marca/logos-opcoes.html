@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Opções de logo</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  body { width: 1080px; height: 1080px; }
+  svg { display: none; } svg.on { display: block; }
+</style></head>
+<body>
+<svg width="0" height="0" style="position:absolute;display:block">
+  <defs>
+    <filter id="grao"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.08 0"/></filter>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="18" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="aspero"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="4"/>
+      <feDisplacementMap in="SourceGraphic" scale="14"/></filter>
+    <radialGradient id="sol" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ff3b2a"/><stop offset="0.7" stop-color="#d0101a"/><stop offset="1" stop-color="#7a060b"/></radialGradient>
+    <radialGradient id="fundoV" cx="50%" cy="45%" r="65%">
+      <stop offset="0" stop-color="#1c0607"/><stop offset="1" stop-color="#040404"/></radialGradient>
+  </defs>
+</svg>
+
+<!-- 1 · O SOBREVIVENTE: pessoa sozinha diante do desastre -->
+<svg id="o1" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <rect width="1080" height="1080" fill="#050505"/>
+  <circle cx="540" cy="470" r="330" fill="url(#sol)" filter="url(#glow)"/>
+  <!-- rachaduras no sol -->
+  <path d="M540 140 L522 260 L556 330 L520 430 L548 520 L530 640" stroke="#050505" stroke-width="10" fill="none"/>
+  <path d="M556 330 L640 300 L700 340 M520 430 L420 410 L360 450 M548 520 L650 560" stroke="#050505" stroke-width="6" fill="none"/>
+  <!-- penhasco -->
+  <path d="M0 1080 L0 760 L180 740 L330 770 L470 735 L585 742 L640 790 L700 860 L760 900 L860 930 L1080 960 L1080 1080 Z" fill="#050505"/>
+  <!-- pessoa em pé na beira -->
+  <g fill="#050505" transform="translate(560 620)">
+    <circle cx="0" cy="0" r="17"/>
+    <path d="M-17 22 Q0 14 17 22 L22 78 L14 80 L12 120 L6 124 L4 80 L-4 80 L-6 124 L-12 120 L-14 80 L-22 78 Z"/>
+    <path d="M-17 26 L-30 74 L-23 76 L-12 36 Z M17 26 L30 74 L23 76 L12 36 Z"/>
+  </g>
+  <rect width="1080" height="1080" filter="url(#grao)"/>
+</svg>
+
+<!-- 2 · AMPULHETA: o tempo para sobreviver acabando -->
+<svg id="o2" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <rect width="1080" height="1080" fill="url(#fundoV)"/>
+  <g stroke="#ece6dc" stroke-width="22" stroke-linejoin="round" fill="none">
+    <path d="M330 190 H750 M330 890 H750"/>
+    <path d="M370 210 C370 400 520 470 520 540 C520 610 370 680 370 870 M710 210 C710 400 560 470 560 540 C560 610 710 680 710 870"/>
+  </g>
+  <!-- areia vermelha: quase toda embaixo -->
+  <path d="M488 470 C470 450 452 430 446 412 L634 412 C628 430 610 450 592 470 Q540 500 488 470 Z" fill="#e3141f"/>
+  <rect x="533" y="500" width="14" height="250" fill="#e3141f"/>
+  <path d="M392 870 C392 790 450 740 540 728 C630 740 688 790 688 870 Z" fill="#e3141f" filter="url(#glow)"/>
+  <!-- rachadura no vidro -->
+  <path d="M640 300 L612 352 L640 380 L606 430" stroke="#ece6dc" stroke-width="5" fill="none" opacity="0.8"/>
+  <rect width="1080" height="1080" filter="url(#grao)"/>
+</svg>
+
+<!-- 3 · MONOGRAMA SD rasgado -->
+<svg id="o3" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <rect width="1080" height="1080" fill="#060606"/>
+  <text x="540" y="790" text-anchor="middle" font-family="Bebas" font-size="680" letter-spacing="-10" fill="#ece6dc" filter="url(#aspero)">SD</text>
+  <!-- três cortes de garra -->
+  <g filter="url(#aspero)">
+    <path d="M250 300 L840 820 L820 840 L230 330 Z" fill="#e3141f"/>
+    <path d="M310 230 L900 750 L882 768 L292 256 Z" fill="#e3141f" opacity="0.9"/>
+    <path d="M200 380 L770 880 L752 896 L184 404 Z" fill="#e3141f" opacity="0.85"/>
+  </g>
+  <rect width="1080" height="1080" filter="url(#grao)"/>
+</svg>
+
+<!-- 4 · ALERTA: triângulo de perigo com pessoa correndo -->
+<svg id="o4" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <rect width="1080" height="1080" fill="url(#fundoV)"/>
+  <path d="M540 170 L930 860 L150 860 Z" fill="none" stroke="#e3141f" stroke-width="46" stroke-linejoin="round" filter="url(#glow)"/>
+  <g fill="#ece6dc" transform="translate(540 600) scale(1.25)">
+    <circle cx="28" cy="-150" r="30"/>
+    <path d="M-10 -110 L40 -112 L70 -50 L120 -30 L112 -10 L52 -30 L36 -60 L22 0 L80 50 L70 150 L44 148 L52 66 L4 30 L-30 110 L-110 120 L-108 94 L-52 86 L-20 -10 L-6 -80 L-40 -60 L-60 -10 L-84 -18 L-56 -86 Z"/>
+  </g>
+  <rect width="1080" height="1080" filter="url(#grao)"/>
+</svg>
+
+<script>
+  const id = new URLSearchParams(location.search).get('o') || 'o1';
+  document.getElementById(id).classList.add('on');
+</script>
+</body></html>
