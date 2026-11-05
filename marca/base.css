@@ -1,0 +1,12 @@
+@font-face { font-family: "Bebas"; src: url("fonte/BebasNeue.ttf"); }
+@font-face { font-family: "Oswald"; src: url("fonte/Oswald-Medium.ttf"); font-weight: 500; }
+:root {
+  --preto: #060606;
+  --vermelho: #e3141f;
+  --vermelho-escuro: #5a070b;
+  --osso: #ece6dc;
+  --cinza: #8a8580;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--preto); overflow: hidden; }
+.ecg { fill: none; stroke: var(--vermelho); stroke-linejoin: round; stroke-linecap: round; }
