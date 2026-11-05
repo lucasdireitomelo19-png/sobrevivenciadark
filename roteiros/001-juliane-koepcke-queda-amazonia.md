@@ -1,6 +1,6 @@
 # Roteiro 001 — A garota que caiu do céu na Amazônia
 
-**Duração alvo:** 15 minutos (~2.250 palavras de narração)
+**Duração estimada:** ~11–12 minutos (~1.700 palavras de narração a ~150 palavras/min; com pausas dramáticas e B-roll chega a 13–15 min). Os tempos das tabelas são aproximados.
 **História real:** Voo LANSA 508 — Peru, 24 de dezembro de 1971 — Juliane Koepcke
 
 ---
