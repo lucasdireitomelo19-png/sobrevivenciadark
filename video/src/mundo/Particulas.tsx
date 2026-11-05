@@ -1,14 +1,14 @@
 import React, { useLayoutEffect, useMemo } from 'react';
 import { useThree } from '@react-three/fiber';
 import * as THREE from 'three';
-import { useCena } from '../motor/contexto';
+import { useTempo } from '../motor/tempo';
 import { rng } from '../motor/matematica';
 import type { Vec3 } from '../roteiro/tipos';
 
 // Sistema de partículas único (billboards instanciados, 100% em shader e determinístico):
 // fogo, brasas, fumaça, vapor, neve, bolhas. O tempo vem do frame do Remotion, não do relógio.
 
-export type TipoParticula = 'fogo' | 'brasa' | 'fumaca' | 'vapor' | 'neve' | 'bolha' | 'po';
+export type TipoParticula = 'fogo' | 'brasa' | 'fumaca' | 'vapor' | 'neve' | 'chuva' | 'bolha' | 'po' | 'respingo';
 
 type Props = {
   tipo: TipoParticula;
@@ -29,6 +29,9 @@ type Props = {
 };
 
 const VERT = /* glsl */ `
+#ifndef ESTICA
+#define ESTICA vec2(1.0)
+#endif
 uniform float uTempo, uVida, uAltura, uRaio, uTamanho, uDensNeblina;
 uniform vec3 uVento, uCam, uCaixa;
 attribute vec3 aAleat;
@@ -65,7 +68,7 @@ void main() {
   vVida = vida;
 #endif
   vec4 mv = modelViewMatrix * vec4(c, 1.0);
-  mv.xy += position.xy * tam;
+  mv.xy += position.xy * tam * ESTICA;
   float dn = uDensNeblina * -mv.z;
   vNeblina = 1.0 - exp(-dn * dn);
   vSemente = aSemente;
@@ -108,6 +111,8 @@ const CONFIG: Record<TipoParticula, { defines: Record<string, string>; aditivo: 
   vapor: { defines: { FUMACA: '', ESPALHAR: '(0.6 + vida * 1.5)', TURB: '0.3', CRESCE: '(0.4 + vida * 1.8)' }, aditivo: false },
   po: { defines: { FOGO: '', ESPALHAR: '(1.0 + vida * 3.0)', TURB: '1.5', CRESCE: '(1.0 + vida)' }, aditivo: true },
   neve: { defines: { NEVE: '' }, aditivo: true },
+  chuva: { defines: { NEVE: '', ESTICA: 'vec2(0.06, 1.6)' }, aditivo: true },
+  respingo: { defines: { FUMACA: '', ESPALHAR: '(0.4 + vida * 3.0)', TURB: '0.4', CRESCE: '(0.5 + vida * 1.5)' }, aditivo: false },
   bolha: { defines: { BOLHA: '' }, aditivo: true },
 };
 
@@ -128,7 +133,7 @@ export const Particulas: React.FC<Props> = ({
   densidadeNeblina = 0,
   corNeblina = '#000000',
 }) => {
-  const { seg } = useCena();
+  const { seg } = useTempo();
   const camera = useThree((s) => s.camera);
   const n = Math.max(1, Math.floor(quantidade));
 
@@ -197,5 +202,5 @@ export const Particulas: React.FC<Props> = ({
     u.uDensNeblina.value = densidadeNeblina;
   });
 
-  return <mesh geometry={geo} material={mat} position={tipo === 'neve' ? [0, 0, 0] : posicao} frustumCulled={false} renderOrder={tipo === 'fumaca' ? 2 : 3} />;
+  return <mesh geometry={geo} material={mat} position={tipo === 'neve' || tipo === 'chuva' ? [0, 0, 0] : posicao} frustumCulled={false} renderOrder={tipo === 'fumaca' ? 2 : 3} />;
 };

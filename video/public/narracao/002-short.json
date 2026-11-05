@@ -1,0 +1,723 @@
+{
+ "voz": "7i7dgyCkKt4c16dLtwT3",
+ "duracao": 53.824,
+ "blocos": [
+  {
+   "texto": "POV: você perdeu o controle na ponte. O carro bateu na água.",
+   "inicio": 0.0,
+   "fim": 4.18,
+   "palavras": [
+    {
+     "texto": "POV:",
+     "inicio": 0.0,
+     "fim": 0.604
+    },
+    {
+     "texto": "você",
+     "inicio": 0.824,
+     "fim": 1.057
+    },
+    {
+     "texto": "perdeu",
+     "inicio": 1.115,
+     "fim": 1.405
+    },
+    {
+     "texto": "o",
+     "inicio": 1.428,
+     "fim": 1.463
+    },
+    {
+     "texto": "controle",
+     "inicio": 1.521,
+     "fim": 1.927
+    },
+    {
+     "texto": "na",
+     "inicio": 1.974,
+     "fim": 2.043
+    },
+    {
+     "texto": "ponte.",
+     "inicio": 2.101,
+     "fim": 2.624
+    },
+    {
+     "texto": "O",
+     "inicio": 2.786,
+     "fim": 2.844
+    },
+    {
+     "texto": "carro",
+     "inicio": 2.914,
+     "fim": 3.181
+    },
+    {
+     "texto": "bateu",
+     "inicio": 3.239,
+     "fim": 3.506
+    },
+    {
+     "texto": "na",
+     "inicio": 3.564,
+     "fim": 3.634
+    },
+    {
+     "texto": "água.",
+     "inicio": 3.715,
+     "fim": 4.18
+    }
+   ]
+  },
+  {
+   "texto": "Você tem mais ou menos um minuto antes de afundar.",
+   "inicio": 4.609,
+   "fim": 7.268,
+   "palavras": [
+    {
+     "texto": "Você",
+     "inicio": 4.609,
+     "fim": 4.841
+    },
+    {
+     "texto": "tem",
+     "inicio": 4.899,
+     "fim": 5.016
+    },
+    {
+     "texto": "mais",
+     "inicio": 5.062,
+     "fim": 5.236
+    },
+    {
+     "texto": "ou",
+     "inicio": 5.294,
+     "fim": 5.341
+    },
+    {
+     "texto": "menos",
+     "inicio": 5.399,
+     "fim": 5.654
+    },
+    {
+     "texto": "um",
+     "inicio": 5.735,
+     "fim": 5.793
+    },
+    {
+     "texto": "minuto",
+     "inicio": 5.817,
+     "fim": 6.188
+    },
+    {
+     "texto": "antes",
+     "inicio": 6.235,
+     "fim": 6.49
+    },
+    {
+     "texto": "de",
+     "inicio": 6.525,
+     "fim": 6.583
+    },
+    {
+     "texto": "afundar.",
+     "inicio": 6.618,
+     "fim": 7.268
+    }
+   ]
+  },
+  {
+   "texto": "Seu instinto vai mandar abrir a porta. Não abre. A pressão da água trava.",
+   "inicio": 7.709,
+   "fim": 12.411,
+   "palavras": [
+    {
+     "texto": "Seu",
+     "inicio": 7.709,
+     "fim": 7.883
+    },
+    {
+     "texto": "instinto",
+     "inicio": 7.941,
+     "fim": 8.359
+    },
+    {
+     "texto": "vai",
+     "inicio": 8.417,
+     "fim": 8.522
+    },
+    {
+     "texto": "mandar",
+     "inicio": 8.568,
+     "fim": 8.835
+    },
+    {
+     "texto": "abrir",
+     "inicio": 8.893,
+     "fim": 9.125
+    },
+    {
+     "texto": "a",
+     "inicio": 9.172,
+     "fim": 9.195
+    },
+    {
+     "texto": "porta.",
+     "inicio": 9.253,
+     "fim": 9.834
+    },
+    {
+     "texto": "Não",
+     "inicio": 10.054,
+     "fim": 10.24
+    },
+    {
+     "texto": "abre.",
+     "inicio": 10.298,
+     "fim": 10.681
+    },
+    {
+     "texto": "A",
+     "inicio": 10.844,
+     "fim": 10.913
+    },
+    {
+     "texto": "pressão",
+     "inicio": 10.971,
+     "fim": 11.32
+    },
+    {
+     "texto": "da",
+     "inicio": 11.355,
+     "fim": 11.436
+    },
+    {
+     "texto": "água",
+     "inicio": 11.54,
+     "fim": 11.773
+    },
+    {
+     "texto": "trava.",
+     "inicio": 11.831,
+     "fim": 12.411
+    }
+   ]
+  },
+  {
+   "texto": "Pegar o celular? Cada segundo no telefone é um segundo a menos para sair.",
+   "inicio": 12.875,
+   "fim": 17.543,
+   "palavras": [
+    {
+     "texto": "Pegar",
+     "inicio": 12.875,
+     "fim": 13.212
+    },
+    {
+     "texto": "o",
+     "inicio": 13.259,
+     "fim": 13.282
+    },
+    {
+     "texto": "celular?",
+     "inicio": 13.328,
+     "fim": 13.967
+    },
+    {
+     "texto": "Cada",
+     "inicio": 14.315,
+     "fim": 14.582
+    },
+    {
+     "texto": "segundo",
+     "inicio": 14.629,
+     "fim": 14.988
+    },
+    {
+     "texto": "no",
+     "inicio": 15.035,
+     "fim": 15.105
+    },
+    {
+     "texto": "telefone",
+     "inicio": 15.151,
+     "fim": 15.674
+    },
+    {
+     "texto": "é",
+     "inicio": 15.732,
+     "fim": 15.79
+    },
+    {
+     "texto": "um",
+     "inicio": 15.848,
+     "fim": 15.918
+    },
+    {
+     "texto": "segundo",
+     "inicio": 15.976,
+     "fim": 16.335
+    },
+    {
+     "texto": "a",
+     "inicio": 16.382,
+     "fim": 16.405
+    },
+    {
+     "texto": "menos",
+     "inicio": 16.463,
+     "fim": 16.765
+    },
+    {
+     "texto": "para",
+     "inicio": 16.823,
+     "fim": 17.009
+    },
+    {
+     "texto": "sair.",
+     "inicio": 17.055,
+     "fim": 17.543
+    }
+   ]
+  },
+  {
+   "texto": "Esperar o carro encher? É assim que as pessoas morrem.",
+   "inicio": 18.065,
+   "fim": 21.351,
+   "palavras": [
+    {
+     "texto": "Esperar",
+     "inicio": 18.065,
+     "fim": 18.483
+    },
+    {
+     "texto": "o",
+     "inicio": 18.53,
+     "fim": 18.565
+    },
+    {
+     "texto": "carro",
+     "inicio": 18.599,
+     "fim": 18.82
+    },
+    {
+     "texto": "encher?",
+     "inicio": 18.855,
+     "fim": 19.389
+    },
+    {
+     "texto": "É",
+     "inicio": 19.795,
+     "fim": 19.853
+    },
+    {
+     "texto": "assim",
+     "inicio": 19.911,
+     "fim": 20.144
+    },
+    {
+     "texto": "que",
+     "inicio": 20.19,
+     "fim": 20.26
+    },
+    {
+     "texto": "as",
+     "inicio": 20.283,
+     "fim": 20.341
+    },
+    {
+     "texto": "pessoas",
+     "inicio": 20.399,
+     "fim": 20.782
+    },
+    {
+     "texto": "morrem.",
+     "inicio": 20.84,
+     "fim": 21.351
+    }
+   ]
+  },
+  {
+   "texto": "Decora: Cinto, Janela, Crianças, Fora.",
+   "inicio": 21.757,
+   "fim": 25.716,
+   "palavras": [
+    {
+     "texto": "Decora:",
+     "inicio": 21.757,
+     "fim": 22.419
+    },
+    {
+     "texto": "Cinto,",
+     "inicio": 22.709,
+     "fim": 23.313
+    },
+    {
+     "texto": "Janela,",
+     "inicio": 23.418,
+     "fim": 24.114
+    },
+    {
+     "texto": "Crianças,",
+     "inicio": 24.253,
+     "fim": 24.95
+    },
+    {
+     "texto": "Fora.",
+     "inicio": 25.089,
+     "fim": 25.716
+    }
+   ]
+  },
+  {
+   "texto": "Cinto: solta o seu.",
+   "inicio": 26.158,
+   "fim": 27.887,
+   "palavras": [
+    {
+     "texto": "Cinto:",
+     "inicio": 26.158,
+     "fim": 26.773
+    },
+    {
+     "texto": "solta",
+     "inicio": 26.935,
+     "fim": 27.272
+    },
+    {
+     "texto": "o",
+     "inicio": 27.319,
+     "fim": 27.353
+    },
+    {
+     "texto": "seu.",
+     "inicio": 27.423,
+     "fim": 27.887
+    }
+   ]
+  },
+  {
+   "texto": "Janela: abre agora. O vidro elétrico costuma funcionar nos primeiros segundos. Se não abrir, quebra a janela lateral.",
+   "inicio": 28.352,
+   "fim": 36.432,
+   "palavras": [
+    {
+     "texto": "Janela:",
+     "inicio": 28.352,
+     "fim": 29.06
+    },
+    {
+     "texto": "abre",
+     "inicio": 29.281,
+     "fim": 29.571
+    },
+    {
+     "texto": "agora.",
+     "inicio": 29.606,
+     "fim": 30.267
+    },
+    {
+     "texto": "O",
+     "inicio": 30.43,
+     "fim": 30.5
+    },
+    {
+     "texto": "vidro",
+     "inicio": 30.569,
+     "fim": 30.825
+    },
+    {
+     "texto": "elétrico",
+     "inicio": 30.86,
+     "fim": 31.324
+    },
+    {
+     "texto": "costuma",
+     "inicio": 31.382,
+     "fim": 31.777
+    },
+    {
+     "texto": "funcionar",
+     "inicio": 31.823,
+     "fim": 32.38
+    },
+    {
+     "texto": "nos",
+     "inicio": 32.439,
+     "fim": 32.566
+    },
+    {
+     "texto": "primeiros",
+     "inicio": 32.624,
+     "fim": 33.065
+    },
+    {
+     "texto": "segundos.",
+     "inicio": 33.088,
+     "fim": 33.831
+    },
+    {
+     "texto": "Se",
+     "inicio": 34.017,
+     "fim": 34.133
+    },
+    {
+     "texto": "não",
+     "inicio": 34.18,
+     "fim": 34.319
+    },
+    {
+     "texto": "abrir,",
+     "inicio": 34.365,
+     "fim": 34.818
+    },
+    {
+     "texto": "quebra",
+     "inicio": 34.981,
+     "fim": 35.329
+    },
+    {
+     "texto": "a",
+     "inicio": 35.364,
+     "fim": 35.387
+    },
+    {
+     "texto": "janela",
+     "inicio": 35.445,
+     "fim": 35.793
+    },
+    {
+     "texto": "lateral.",
+     "inicio": 35.851,
+     "fim": 36.432
+    }
+   ]
+  },
+  {
+   "texto": "Crianças: solta da mais velha para a mais nova e empurra todas pela janela na sua frente. Depois que você sai, é muito difícil voltar.",
+   "inicio": 36.862,
+   "fim": 45.987,
+   "palavras": [
+    {
+     "texto": "Crianças:",
+     "inicio": 36.862,
+     "fim": 37.674
+    },
+    {
+     "texto": "solta",
+     "inicio": 37.964,
+     "fim": 38.301
+    },
+    {
+     "texto": "da",
+     "inicio": 38.348,
+     "fim": 38.417
+    },
+    {
+     "texto": "mais",
+     "inicio": 38.475,
+     "fim": 38.661
+    },
+    {
+     "texto": "velha",
+     "inicio": 38.719,
+     "fim": 39.009
+    },
+    {
+     "texto": "para",
+     "inicio": 39.067,
+     "fim": 39.242
+    },
+    {
+     "texto": "a",
+     "inicio": 39.265,
+     "fim": 39.288
+    },
+    {
+     "texto": "mais",
+     "inicio": 39.346,
+     "fim": 39.532
+    },
+    {
+     "texto": "nova",
+     "inicio": 39.601,
+     "fim": 39.985
+    },
+    {
+     "texto": "e",
+     "inicio": 40.17,
+     "fim": 40.333
+    },
+    {
+     "texto": "empurra",
+     "inicio": 40.379,
+     "fim": 40.762
+    },
+    {
+     "texto": "todas",
+     "inicio": 40.844,
+     "fim": 41.18
+    },
+    {
+     "texto": "pela",
+     "inicio": 41.238,
+     "fim": 41.424
+    },
+    {
+     "texto": "janela",
+     "inicio": 41.471,
+     "fim": 41.854
+    },
+    {
+     "texto": "na",
+     "inicio": 41.912,
+     "fim": 41.993
+    },
+    {
+     "texto": "sua",
+     "inicio": 42.04,
+     "fim": 42.225
+    },
+    {
+     "texto": "frente.",
+     "inicio": 42.283,
+     "fim": 42.841
+    },
+    {
+     "texto": "Depois",
+     "inicio": 43.096,
+     "fim": 43.433
+    },
+    {
+     "texto": "que",
+     "inicio": 43.468,
+     "fim": 43.537
+    },
+    {
+     "texto": "você",
+     "inicio": 43.584,
+     "fim": 43.781
+    },
+    {
+     "texto": "sai,",
+     "inicio": 43.886,
+     "fim": 44.315
+    },
+    {
+     "texto": "é",
+     "inicio": 44.501,
+     "fim": 44.559
+    },
+    {
+     "texto": "muito",
+     "inicio": 44.617,
+     "fim": 44.884
+    },
+    {
+     "texto": "difícil",
+     "inicio": 44.93,
+     "fim": 45.325
+    },
+    {
+     "texto": "voltar.",
+     "inicio": 45.372,
+     "fim": 45.987
+    }
+   ]
+  },
+  {
+   "texto": "Fora: sai e nada até a margem. Só aí você liga para a emergência.",
+   "inicio": 46.521,
+   "fim": 51.908,
+   "palavras": [
+    {
+     "texto": "Fora:",
+     "inicio": 46.521,
+     "fim": 47.148
+    },
+    {
+     "texto": "sai",
+     "inicio": 47.438,
+     "fim": 47.81
+    },
+    {
+     "texto": "e",
+     "inicio": 47.972,
+     "fim": 48.077
+    },
+    {
+     "texto": "nada",
+     "inicio": 48.158,
+     "fim": 48.495
+    },
+    {
+     "texto": "até",
+     "inicio": 48.53,
+     "fim": 48.739
+    },
+    {
+     "texto": "a",
+     "inicio": 48.808,
+     "fim": 48.831
+    },
+    {
+     "texto": "margem.",
+     "inicio": 48.889,
+     "fim": 49.47
+    },
+    {
+     "texto": "Só",
+     "inicio": 49.691,
+     "fim": 49.9
+    },
+    {
+     "texto": "aí",
+     "inicio": 49.958,
+     "fim": 50.167
+    },
+    {
+     "texto": "você",
+     "inicio": 50.225,
+     "fim": 50.445
+    },
+    {
+     "texto": "liga",
+     "inicio": 50.526,
+     "fim": 50.747
+    },
+    {
+     "texto": "para",
+     "inicio": 50.793,
+     "fim": 50.979
+    },
+    {
+     "texto": "a",
+     "inicio": 51.014,
+     "fim": 51.037
+    },
+    {
+     "texto": "emergência.",
+     "inicio": 51.119,
+     "fim": 51.908
+    }
+   ]
+  },
+  {
+   "texto": "Você sobreviveria?",
+   "inicio": 52.442,
+   "fim": 53.824,
+   "palavras": [
+    {
+     "texto": "Você",
+     "inicio": 52.442,
+     "fim": 52.698
+    },
+    {
+     "texto": "sobreviveria?",
+     "inicio": 52.767,
+     "fim": 53.824
+    }
+   ]
+  }
+ ]
+}
