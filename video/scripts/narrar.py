@@ -6,12 +6,12 @@ texto_linhas = [l.strip() for l in open(sys.argv[1], encoding='utf-8') if l.stri
 saida = sys.argv[2]
 voz = sys.argv[3] if len(sys.argv) > 3 else '7i7dgyCkKt4c16dLtwT3'  # David
 key = os.environ.get('ELEVENLABS_API_KEY') or open('/root/.elevenlabs_key').read().strip()
-PAUSA = ' <break time="0.35s" /> '
+PAUSA = ' '  # sem pausas forçadas: a voz respira sozinha na pontuação (mais fluida)
 texto = PAUSA.join(texto_linhas)
 corpo = json.dumps({
     'text': texto,
     'model_id': 'eleven_multilingual_v2',
-    'voice_settings': {'stability': 0.42, 'similarity_boost': 0.82, 'style': 0.4, 'use_speaker_boost': True, 'speed': 1.1},
+    'voice_settings': {'stability': 0.6, 'similarity_boost': 0.75, 'style': 0.0, 'use_speaker_boost': True, 'speed': 1.0},
 }).encode()
 req = urllib.request.Request(f'https://api.elevenlabs.io/v1/text-to-speech/{voz}/with-timestamps?output_format=mp3_44100_192',
                              data=corpo, headers={'xi-api-key': key, 'Content-Type': 'application/json'})
