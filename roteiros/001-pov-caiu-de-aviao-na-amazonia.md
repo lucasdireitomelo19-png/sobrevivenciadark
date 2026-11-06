@@ -5,7 +5,8 @@
 **Caso real usado como prova:** Juliane Koepcke, voo LANSA 508, Peru, 24/12/1971
 **Versão antiga (documentário em 3ª pessoa):** `roteiros/referencias/juliane-koepcke-versao-documentario.md`
 
-> ⚠️ **Antes de gravar:** confira cada passo do passo a passo nas fontes da seção "Checagem de segurança". Nada aqui foi conferido online ainda.
+> ✅ **SHORT (seção 6A): fontes conferidas em 06/11/2026.** Só entram conselhos que aparecem nas fontes lidas (ver "Checagem do Short").
+> ⚠️ **VÍDEO LONGO (seção 6B): ainda não conferido.** Vários passos (sinais em grupos de três, espelho, seguir rio abaixo, arrastar os pés por causa de arraias, cuidados com ferida) não foram confirmados em fonte oficial. Não grave o longo antes de revisar.
 
 ---
 
@@ -61,7 +62,62 @@ O espectador é colocado dentro de um acidente aéreo sobre a selva amazônica. 
 | Prova real | 9:15–10:00 | Juliane: 11 dias, encontrou uma cabana, foi resgatada. |
 | Fecho | 10:00–10:40 | Você sobreviveria? + pergunta. |
 
-## 6. Roteiro completo
+## 6A. Roteiro — SHORT (~50 s), conferido
+
+POV: você abre os olhos no chão da Amazônia.
+Ainda está preso à poltrona do avião.
+O avião se partiu no ar. E ninguém sabe que você está vivo.
+Seu instinto vai mandar sair andando pela mata para pedir ajuda.
+Não faz isso.
+Um avião caído é muito mais fácil de achar do que uma pessoa andando pela floresta.
+Então você fica perto dos destroços.
+Mas não colado neles enquanto o motor estiver quente ou tiver combustível derramado.
+Primeiro, respira. Descansa até passar o choque.
+Cuida dos ferimentos. Depois, monta um abrigo contra a chuva e o vento.
+Agora, faz o resgate te ver.
+Uma fogueira com galho verde e folhas faz fumaça e chama atenção.
+Espalha qualquer coisa grande e clara dos destroços onde dê para ver do céu.
+Água: você aguenta só de dois a quatro dias sem ela.
+Se conseguir, ferve a água do rio por um minuto.
+Em 1971, uma garota de 17 anos acordou exatamente assim.
+Ela ouviu os aviões de resgate passarem por cima e ninguém viu ela.
+É por isso que o sinal importa.
+Você sobreviveria?
+
+### Cenas sugeridas para o Short (pixel art 2D, vertical)
+1. Olhos abrindo; copas das árvores girando; você preso à poltrona no chão da selva.
+2. Destroços espalhados, fumaça, silêncio. Texto: "NINGUÉM SABE QUE VOCÊ ESTÁ VIVO".
+3. Personagem dando um passo para dentro da mata escura; X vermelho.
+4. Vista de cima: destroços visíveis numa clareira e um ponto minúsculo (pessoa) sumindo na mata. Texto: "O AVIÃO É MAIS FÁCIL DE ACHAR".
+5. Personagem sentado a alguns metros dos destroços; ícone de combustível/motor quente com aviso.
+6. Respirando, descansando; depois, enfaixando o braço; abrigo improvisado com pedaços do avião.
+7. Fogueira soltando fumaça cinza grossa subindo acima das copas.
+8. Pedaços claros dos destroços espalhados na clareira, vistos de cima.
+9. Cronômetro "2–4 DIAS" sobre uma garrafa vazia; panela de metal fervendo; "1 MIN".
+10. Silhueta de avião de resgate passando acima das copas; personagem acenando, invisível embaixo.
+11. Tela final: "VOCÊ SOBREVIVERIA?" com o triângulo do canal.
+
+### Checagem do Short (conferida em 06/11/2026)
+
+| Conselho | Fonte (texto lido) |
+|---|---|
+| Ficar com o avião: é mais fácil achar o avião do que a pessoa | EAA: "the best tactic is to stay with the aircraft. A downed aircraft is typically much easier to find than humans tromping around in the wilderness."; Manual de sobrevivência da Marinha dos EUA (tpub, Land Survival): "Stay with the aircraft unless briefing instructions have been to the contrary." |
+| Não ficar junto do avião com motor quente/combustível derramado | Marinha dos EUA (tpub): ficar afastado "until the engines have cooled and any spilled fuel has evaporated" |
+| Descansar até passar o choque | Marinha dos EUA (tpub): "relax and rest until you are over the shock of the crash" |
+| Cuidar dos ferimentos e depois buscar abrigo | EAA: "After tending to any medical emergencies, the next order of business is often to find warmth and shelter."; Marinha: shelter "for protection from rain, hot sun… wind" |
+| Fogueira com galho verde e folhas para fazer fumaça | EAA: "Green wood and pine needles can create a smoky fire that helps attract attention." |
+| Espalhar sinais visíveis do ar | Marinha dos EUA (tpub): "Prepare signals that can be recognized from the air." (exemplo: abrir um paraquedas) |
+| 2 a 4 dias sem água | EAA: "only two to four days without water" |
+| Ferver água por 1 minuto | CDC: "Bring clear water to a rolling boil for 1 minute" |
+| Juliane ouviu os aviões e não foi vista | Relato do caso real (Juliane Koepcke) |
+
+URLs: https://inspire.eaa.org/2025/03/20/elements-of-survival/ · https://tpub.com/ase1/41.htm · https://cdc.gov/water-emergency/about · https://www.flyingmag.com/the-art-of-post-crash-survival/ (resumo: "staying near the crash site")
+
+**Limites:** não há página de órgão oficial brasileiro. As fontes são a EAA (associação de aviação), um manual militar dos EUA e o CDC. Cuidados com ferida ficaram genéricos ("cuida dos ferimentos"), porque as páginas da Cruz Vermelha bloquearam a leitura.
+
+---
+
+## 6B. Roteiro completo (vídeo longo — NÃO CONFERIDO)
 
 ### [GANCHO — 0:00]
 
