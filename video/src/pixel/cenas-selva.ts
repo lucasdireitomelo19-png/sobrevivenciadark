@@ -72,8 +72,8 @@ export const cenaAviaoTempestade = (p: Pincel, s: number, o: { clarao?: number }
     for (let y = Math.max(0, Math.floor(topo)); y < h; y++) p.rampa(x, y, FOLHAS, 0.35 - (y - topo) / 40 + raio * 0.3);
   }
   // avião sacudindo
-  const ax = Math.round(w * 0.62 - ((s * 14) % (w + 80)) * 0) - 18 + Math.round(noise2D('sac', s * 3, 0) * 2);
-  const ay = Math.round(52 + noise2D('sac', s * 4, 5) * 3 + Math.sin(s * 2) * 2);
+  const ax = Math.round(w * 0.5) - 18 + Math.round(noise2D('sac', s * 3, 0) * 2);
+  const ay = Math.round(h * 0.29 + noise2D('sac', s * 4, 5) * 3 + Math.sin(s * 2) * 2);
   p.sprite(AVIAO, COR_AVIAO, ax, ay);
   // clarão na asa
   const k = o.clarao ?? 0;
@@ -137,7 +137,7 @@ export const cenaCopaGirando = (p: Pincel, s: number, o: { giro?: number; tontur
 export const cenaChaoSelva = (p: Pincel, s: number, o: { panorama?: number; pessoa?: boolean; luz?: number } = {}) => {
   const { w, h } = p;
   const pan = (o.panorama ?? 0) * s;
-  const chao = 138;
+  const chao = Math.round(h * 0.77);
   // fundo: névoa verde-escura com feixes de luz
   for (let y = 0; y < chao; y++) for (let x = 0; x < w; x++) {
     const feixe = Math.max(0, 1 - Math.abs(((x + y * 0.55 + pan * 0.3) % 70) - 35) / 9) * (o.luz ?? 0.6) * (1 - y / chao);
@@ -171,12 +171,12 @@ export const cenaChaoSelva = (p: Pincel, s: number, o: { panorama?: number; pess
     p.rampa(x, y, TERRA, 0.35 + n * 0.5 - (y - chao) / 70);
   }
   // a poltrona e você
-  const px0 = 136 - Math.round(pan * 1.0) % 1;
+  const px0 = Math.round(w / 2 - 8);
   p.sprite(POLTRONA, COR_POLTRONA, px0, chao - 8);
   if (o.pessoa !== false) p.sprite(PESSOA, COR_PESSOA, px0 + 1, chao - 9);
   // folhas grandes em primeiro plano, balançando
   for (let i = 0; i < 5; i++) {
-    const bx = [8, 40, 250, 290, 315][i] - pan * 1.6;
+    const bx = [0.03, 0.12, 0.78, 0.9, 0.98][i] * w - pan * 1.6;
     const by = h - 6;
     const ang = -1.2 + i * 0.5 + Math.sin(s * 1.3 + i) * 0.05;
     for (let t = 0; t < 34; t++) {
