@@ -34,7 +34,7 @@ export const Legenda: React.FC<{ s: number }> = ({ s }) => {
   const ultimo = atual[atual.length - 1];
   if (s > ultimo.fim + 0.6 && grupos.indexOf(atual) === grupos.length - 1) return null;
   return (
-    <div style={{ position: 'absolute', top: 1120, left: 60, right: 60, textAlign: 'center', fontFamily: FONTES.titulo, fontSize: fs(128), letterSpacing: FONTES.pixel ? 0 : 2, lineHeight: FONTES.pixel ? 1.5 : 1.02, textShadow: sombraAtual() }}>
+    <div style={{ position: 'absolute', top: 1390, left: 60, right: 60, textAlign: 'center', fontFamily: FONTES.titulo, fontSize: fs(128), letterSpacing: FONTES.pixel ? 0 : 2, lineHeight: FONTES.pixel ? 1.5 : 1.02, textShadow: sombraAtual() }}>
       {atual.map((w, i) => {
         const ativo = s >= w.inicio - 0.03;
         const pop = easeOut(clamp((s - w.inicio + 0.03) / 0.12));
