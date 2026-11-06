@@ -36,7 +36,7 @@ Não avise em notificações automáticas nem em respostas de uma linha, e não 
 - `doc_id`: `<id da sessão>-<timestamp em ms>`. O id da sessão é a variável `CLAUDE_CODE_REMOTE_SESSION_ID` com o prefixo `cse_` trocado por `session_`.
 - `data`: `{ "sessao": "<id da sessão>", "titulo": "<título curto da conversa>", "estado": "...", "faz": "...", "pedido": "...", "ts": "<agora em ISO UTC>", "andar": "<setor>" }`. `andar`: "Direção & Marca", "Pesquisa & Roteiros" ou "Produção de Vídeo".
 
-**Vídeo entregue** vai para a coleção `videos`: `{ nome, tipo: "short"|"longo", ordem (número sequencial sd-1, sd-2…), status: "Pronto", data_pub (AAAA-MM-DD, opcional), video_url, thumb_url, legendas: { yt_titulo, yt_desc, tiktok, reels, tags, comentario }, notas }`. Suba o MP4 e a thumb como assets do próprio Observatório (`Artifact` publish com `url` do Observatório e `asset: true`) e use as `url` retornadas.
+**Vídeo entregue** vai para a coleção `videos`: `{ nome, tipo: "short"|"longo", ordem (número: 1, 2, 3…; o vídeo é chamado sd-1, sd-2…), status: "Pronto", data_pub (AAAA-MM-DD, opcional), video_url, thumb_url, legendas: { yt_titulo, yt_desc, tiktok, reels, tags, comentario }, notas }`. Suba o MP4 e a thumb como assets do próprio Observatório (`Artifact` publish com `url` do Observatório e `asset: true`) e use as `url` retornadas.
 
 Agente novo ou conversa trocada: atualize o `sessao` (e `anteriores`) do agente na coleção `agentes`.
 
