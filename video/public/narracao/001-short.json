@@ -1,0 +1,1054 @@
+{
+ "voz": "7i7dgyCkKt4c16dLtwT3",
+ "duracao": 76.208,
+ "blocos": [
+  {
+   "texto": "POV: você abre os olhos no chão da Amazônia.",
+   "inicio": 0.0,
+   "fim": 3.46,
+   "palavras": [
+    {
+     "texto": "POV:",
+     "inicio": 0.0,
+     "fim": 0.778
+    },
+    {
+     "texto": "você",
+     "inicio": 1.057,
+     "fim": 1.324
+    },
+    {
+     "texto": "abre",
+     "inicio": 1.44,
+     "fim": 1.66
+    },
+    {
+     "texto": "os",
+     "inicio": 1.683,
+     "fim": 1.753
+    },
+    {
+     "texto": "olhos",
+     "inicio": 1.869,
+     "fim": 2.113
+    },
+    {
+     "texto": "no",
+     "inicio": 2.171,
+     "fim": 2.252
+    },
+    {
+     "texto": "chão",
+     "inicio": 2.299,
+     "fim": 2.531
+    },
+    {
+     "texto": "da",
+     "inicio": 2.577,
+     "fim": 2.647
+    },
+    {
+     "texto": "Amazônia.",
+     "inicio": 2.694,
+     "fim": 3.46
+    }
+   ]
+  },
+  {
+   "texto": "Ainda está preso à poltrona do avião.",
+   "inicio": 3.738,
+   "fim": 6.014,
+   "palavras": [
+    {
+     "texto": "Ainda",
+     "inicio": 3.738,
+     "fim": 4.029
+    },
+    {
+     "texto": "está",
+     "inicio": 4.052,
+     "fim": 4.238
+    },
+    {
+     "texto": "preso",
+     "inicio": 4.319,
+     "fim": 4.656
+    },
+    {
+     "texto": "à",
+     "inicio": 4.714,
+     "fim": 4.737
+    },
+    {
+     "texto": "poltrona",
+     "inicio": 4.783,
+     "fim": 5.306
+    },
+    {
+     "texto": "do",
+     "inicio": 5.352,
+     "fim": 5.422
+    },
+    {
+     "texto": "avião.",
+     "inicio": 5.48,
+     "fim": 6.014
+    }
+   ]
+  },
+  {
+   "texto": "O avião se partiu no ar. E ninguém sabe que você está vivo.",
+   "inicio": 6.293,
+   "fim": 10.542,
+   "palavras": [
+    {
+     "texto": "O",
+     "inicio": 6.293,
+     "fim": 6.351
+    },
+    {
+     "texto": "avião",
+     "inicio": 6.432,
+     "fim": 6.78
+    },
+    {
+     "texto": "se",
+     "inicio": 6.827,
+     "fim": 6.92
+    },
+    {
+     "texto": "partiu",
+     "inicio": 6.978,
+     "fim": 7.372
+    },
+    {
+     "texto": "no",
+     "inicio": 7.442,
+     "fim": 7.558
+    },
+    {
+     "texto": "ar.",
+     "inicio": 7.639,
+     "fim": 7.988
+    },
+    {
+     "texto": "E",
+     "inicio": 8.371,
+     "fim": 8.452
+    },
+    {
+     "texto": "ninguém",
+     "inicio": 8.533,
+     "fim": 8.847
+    },
+    {
+     "texto": "sabe",
+     "inicio": 8.928,
+     "fim": 9.3
+    },
+    {
+     "texto": "que",
+     "inicio": 9.334,
+     "fim": 9.404
+    },
+    {
+     "texto": "você",
+     "inicio": 9.462,
+     "fim": 9.694
+    },
+    {
+     "texto": "está",
+     "inicio": 9.764,
+     "fim": 9.95
+    },
+    {
+     "texto": "vivo.",
+     "inicio": 10.031,
+     "fim": 10.542
+    }
+   ]
+  },
+  {
+   "texto": "Seu instinto vai mandar sair andando pela mata para pedir ajuda.",
+   "inicio": 10.867,
+   "fim": 14.768,
+   "palavras": [
+    {
+     "texto": "Seu",
+     "inicio": 10.867,
+     "fim": 11.064
+    },
+    {
+     "texto": "instinto",
+     "inicio": 11.122,
+     "fim": 11.575
+    },
+    {
+     "texto": "vai",
+     "inicio": 11.622,
+     "fim": 11.738
+    },
+    {
+     "texto": "mandar",
+     "inicio": 11.773,
+     "fim": 12.086
+    },
+    {
+     "texto": "sair",
+     "inicio": 12.144,
+     "fim": 12.469
+    },
+    {
+     "texto": "andando",
+     "inicio": 12.516,
+     "fim": 12.899
+    },
+    {
+     "texto": "pela",
+     "inicio": 12.945,
+     "fim": 13.166
+    },
+    {
+     "texto": "mata",
+     "inicio": 13.224,
+     "fim": 13.549
+    },
+    {
+     "texto": "para",
+     "inicio": 13.595,
+     "fim": 13.781
+    },
+    {
+     "texto": "pedir",
+     "inicio": 13.827,
+     "fim": 14.153
+    },
+    {
+     "texto": "ajuda.",
+     "inicio": 14.199,
+     "fim": 14.768
+    }
+   ]
+  },
+  {
+   "texto": "Não faz isso.",
+   "inicio": 15.151,
+   "fim": 16.033,
+   "palavras": [
+    {
+     "texto": "Não",
+     "inicio": 15.151,
+     "fim": 15.302
+    },
+    {
+     "texto": "faz",
+     "inicio": 15.348,
+     "fim": 15.557
+    },
+    {
+     "texto": "isso.",
+     "inicio": 15.673,
+     "fim": 16.033
+    }
+   ]
+  },
+  {
+   "texto": "Um avião caído é muito mais fácil de achar do que uma pessoa andando pela floresta.",
+   "inicio": 16.312,
+   "fim": 21.978,
+   "palavras": [
+    {
+     "texto": "Um",
+     "inicio": 16.312,
+     "fim": 16.416
+    },
+    {
+     "texto": "avião",
+     "inicio": 16.463,
+     "fim": 16.765
+    },
+    {
+     "texto": "caído",
+     "inicio": 16.8,
+     "fim": 17.322
+    },
+    {
+     "texto": "é",
+     "inicio": 17.496,
+     "fim": 17.612
+    },
+    {
+     "texto": "muito",
+     "inicio": 17.705,
+     "fim": 18.065
+    },
+    {
+     "texto": "mais",
+     "inicio": 18.111,
+     "fim": 18.297
+    },
+    {
+     "texto": "fácil",
+     "inicio": 18.379,
+     "fim": 18.75
+    },
+    {
+     "texto": "de",
+     "inicio": 18.796,
+     "fim": 18.855
+    },
+    {
+     "texto": "achar",
+     "inicio": 18.901,
+     "fim": 19.331
+    },
+    {
+     "texto": "do",
+     "inicio": 19.54,
+     "fim": 19.656
+    },
+    {
+     "texto": "que",
+     "inicio": 19.702,
+     "fim": 19.772
+    },
+    {
+     "texto": "uma",
+     "inicio": 19.807,
+     "fim": 19.923
+    },
+    {
+     "texto": "pessoa",
+     "inicio": 19.969,
+     "fim": 20.422
+    },
+    {
+     "texto": "andando",
+     "inicio": 20.48,
+     "fim": 20.968
+    },
+    {
+     "texto": "pela",
+     "inicio": 21.014,
+     "fim": 21.211
+    },
+    {
+     "texto": "floresta.",
+     "inicio": 21.258,
+     "fim": 21.978
+    }
+   ]
+  },
+  {
+   "texto": "Então você fica perto dos destroços.",
+   "inicio": 22.187,
+   "fim": 24.741,
+   "palavras": [
+    {
+     "texto": "Então",
+     "inicio": 22.187,
+     "fim": 22.581
+    },
+    {
+     "texto": "você",
+     "inicio": 22.628,
+     "fim": 22.837
+    },
+    {
+     "texto": "fica",
+     "inicio": 22.918,
+     "fim": 23.173
+    },
+    {
+     "texto": "perto",
+     "inicio": 23.243,
+     "fim": 23.626
+    },
+    {
+     "texto": "dos",
+     "inicio": 23.684,
+     "fim": 23.812
+    },
+    {
+     "texto": "destroços.",
+     "inicio": 23.87,
+     "fim": 24.741
+    }
+   ]
+  },
+  {
+   "texto": "Mas não colado neles enquanto o motor estiver quente ou tiver combustível derramado.",
+   "inicio": 24.95,
+   "fim": 30.453,
+   "palavras": [
+    {
+     "texto": "Mas",
+     "inicio": 24.95,
+     "fim": 25.159
+    },
+    {
+     "texto": "não",
+     "inicio": 25.228,
+     "fim": 25.368
+    },
+    {
+     "texto": "colado",
+     "inicio": 25.403,
+     "fim": 25.855
+    },
+    {
+     "texto": "neles",
+     "inicio": 25.925,
+     "fim": 26.25
+    },
+    {
+     "texto": "enquanto",
+     "inicio": 26.308,
+     "fim": 26.703
+    },
+    {
+     "texto": "o",
+     "inicio": 26.761,
+     "fim": 26.784
+    },
+    {
+     "texto": "motor",
+     "inicio": 26.831,
+     "fim": 27.237
+    },
+    {
+     "texto": "estiver",
+     "inicio": 27.283,
+     "fim": 27.655
+    },
+    {
+     "texto": "quente",
+     "inicio": 27.736,
+     "fim": 28.201
+    },
+    {
+     "texto": "ou",
+     "inicio": 28.375,
+     "fim": 28.526
+    },
+    {
+     "texto": "tiver",
+     "inicio": 28.572,
+     "fim": 28.862
+    },
+    {
+     "texto": "combustível",
+     "inicio": 28.932,
+     "fim": 29.605
+    },
+    {
+     "texto": "derramado.",
+     "inicio": 29.663,
+     "fim": 30.453
+    }
+   ]
+  },
+  {
+   "texto": "Primeiro, respira. Descansa até passar o choque.",
+   "inicio": 30.662,
+   "fim": 34.888,
+   "palavras": [
+    {
+     "texto": "Primeiro,",
+     "inicio": 30.662,
+     "fim": 31.37
+    },
+    {
+     "texto": "respira.",
+     "inicio": 31.614,
+     "fim": 32.438
+    },
+    {
+     "texto": "Descansa",
+     "inicio": 32.647,
+     "fim": 33.402
+    },
+    {
+     "texto": "até",
+     "inicio": 33.471,
+     "fim": 33.715
+    },
+    {
+     "texto": "passar",
+     "inicio": 33.785,
+     "fim": 34.156
+    },
+    {
+     "texto": "o",
+     "inicio": 34.214,
+     "fim": 34.238
+    },
+    {
+     "texto": "choque.",
+     "inicio": 34.284,
+     "fim": 34.888
+    }
+   ]
+  },
+  {
+   "texto": "Cuida dos ferimentos. Depois, monta um abrigo contra a chuva e o vento.",
+   "inicio": 35.097,
+   "fim": 40.263,
+   "palavras": [
+    {
+     "texto": "Cuida",
+     "inicio": 35.097,
+     "fim": 35.433
+    },
+    {
+     "texto": "dos",
+     "inicio": 35.48,
+     "fim": 35.608
+    },
+    {
+     "texto": "ferimentos.",
+     "inicio": 35.666,
+     "fim": 36.56
+    },
+    {
+     "texto": "Depois,",
+     "inicio": 36.722,
+     "fim": 37.43
+    },
+    {
+     "texto": "monta",
+     "inicio": 37.593,
+     "fim": 37.976
+    },
+    {
+     "texto": "um",
+     "inicio": 38.022,
+     "fim": 38.092
+    },
+    {
+     "texto": "abrigo",
+     "inicio": 38.162,
+     "fim": 38.58
+    },
+    {
+     "texto": "contra",
+     "inicio": 38.649,
+     "fim": 38.975
+    },
+    {
+     "texto": "a",
+     "inicio": 39.021,
+     "fim": 39.044
+    },
+    {
+     "texto": "chuva",
+     "inicio": 39.102,
+     "fim": 39.497
+    },
+    {
+     "texto": "e",
+     "inicio": 39.555,
+     "fim": 39.601
+    },
+    {
+     "texto": "o",
+     "inicio": 39.648,
+     "fim": 39.683
+    },
+    {
+     "texto": "vento.",
+     "inicio": 39.741,
+     "fim": 40.263
+    }
+   ]
+  },
+  {
+   "texto": "Agora, faz o resgate te ver.",
+   "inicio": 40.542,
+   "fim": 42.91,
+   "palavras": [
+    {
+     "texto": "Agora,",
+     "inicio": 40.542,
+     "fim": 41.134
+    },
+    {
+     "texto": "faz",
+     "inicio": 41.308,
+     "fim": 41.552
+    },
+    {
+     "texto": "o",
+     "inicio": 41.622,
+     "fim": 41.645
+    },
+    {
+     "texto": "resgate",
+     "inicio": 41.703,
+     "fim": 42.26
+    },
+    {
+     "texto": "te",
+     "inicio": 42.318,
+     "fim": 42.411
+    },
+    {
+     "texto": "ver.",
+     "inicio": 42.469,
+     "fim": 42.91
+    }
+   ]
+  },
+  {
+   "texto": "Uma fogueira com galho verde e folhas faz fumaça e chama atenção.",
+   "inicio": 43.235,
+   "fim": 47.961,
+   "palavras": [
+    {
+     "texto": "Uma",
+     "inicio": 43.235,
+     "fim": 43.433
+    },
+    {
+     "texto": "fogueira",
+     "inicio": 43.491,
+     "fim": 43.967
+    },
+    {
+     "texto": "com",
+     "inicio": 44.025,
+     "fim": 44.164
+    },
+    {
+     "texto": "galho",
+     "inicio": 44.222,
+     "fim": 44.501
+    },
+    {
+     "texto": "verde",
+     "inicio": 44.571,
+     "fim": 44.954
+    },
+    {
+     "texto": "e",
+     "inicio": 45.012,
+     "fim": 45.047
+    },
+    {
+     "texto": "folhas",
+     "inicio": 45.139,
+     "fim": 45.673
+    },
+    {
+     "texto": "faz",
+     "inicio": 45.871,
+     "fim": 46.103
+    },
+    {
+     "texto": "fumaça",
+     "inicio": 46.173,
+     "fim": 46.73
+    },
+    {
+     "texto": "e",
+     "inicio": 46.8,
+     "fim": 46.858
+    },
+    {
+     "texto": "chama",
+     "inicio": 46.893,
+     "fim": 47.194
+    },
+    {
+     "texto": "atenção.",
+     "inicio": 47.229,
+     "fim": 47.961
+    }
+   ]
+  },
+  {
+   "texto": "Espalha qualquer coisa grande e clara dos destroços onde dê para ver do céu.",
+   "inicio": 48.228,
+   "fim": 53.441,
+   "palavras": [
+    {
+     "texto": "Espalha",
+     "inicio": 48.228,
+     "fim": 48.75
+    },
+    {
+     "texto": "qualquer",
+     "inicio": 48.808,
+     "fim": 49.168
+    },
+    {
+     "texto": "coisa",
+     "inicio": 49.249,
+     "fim": 49.609
+    },
+    {
+     "texto": "grande",
+     "inicio": 49.667,
+     "fim": 50.062
+    },
+    {
+     "texto": "e",
+     "inicio": 50.12,
+     "fim": 50.155
+    },
+    {
+     "texto": "clara",
+     "inicio": 50.225,
+     "fim": 50.596
+    },
+    {
+     "texto": "dos",
+     "inicio": 50.654,
+     "fim": 50.782
+    },
+    {
+     "texto": "destroços",
+     "inicio": 50.84,
+     "fim": 51.618
+    },
+    {
+     "texto": "onde",
+     "inicio": 51.827,
+     "fim": 52.105
+    },
+    {
+     "texto": "dê",
+     "inicio": 52.187,
+     "fim": 52.338
+    },
+    {
+     "texto": "para",
+     "inicio": 52.384,
+     "fim": 52.57
+    },
+    {
+     "texto": "ver",
+     "inicio": 52.628,
+     "fim": 52.79
+    },
+    {
+     "texto": "do",
+     "inicio": 52.86,
+     "fim": 52.93
+    },
+    {
+     "texto": "céu.",
+     "inicio": 52.976,
+     "fim": 53.441
+    }
+   ]
+  },
+  {
+   "texto": "Água: você aguenta só de dois a quatro dias sem ela.",
+   "inicio": 53.87,
+   "fim": 57.551,
+   "palavras": [
+    {
+     "texto": "Água:",
+     "inicio": 53.87,
+     "fim": 54.393
+    },
+    {
+     "texto": "você",
+     "inicio": 54.671,
+     "fim": 54.88
+    },
+    {
+     "texto": "aguenta",
+     "inicio": 54.927,
+     "fim": 55.275
+    },
+    {
+     "texto": "só",
+     "inicio": 55.345,
+     "fim": 55.53
+    },
+    {
+     "texto": "de",
+     "inicio": 55.588,
+     "fim": 55.658
+    },
+    {
+     "texto": "dois",
+     "inicio": 55.739,
+     "fim": 56.006
+    },
+    {
+     "texto": "a",
+     "inicio": 56.076,
+     "fim": 56.099
+    },
+    {
+     "texto": "quatro",
+     "inicio": 56.169,
+     "fim": 56.482
+    },
+    {
+     "texto": "dias",
+     "inicio": 56.529,
+     "fim": 56.842
+    },
+    {
+     "texto": "sem",
+     "inicio": 56.866,
+     "fim": 57.051
+    },
+    {
+     "texto": "ela.",
+     "inicio": 57.133,
+     "fim": 57.551
+    }
+   ]
+  },
+  {
+   "texto": "Se conseguir, ferve a água do rio por um minuto.",
+   "inicio": 57.864,
+   "fim": 61.045,
+   "palavras": [
+    {
+     "texto": "Se",
+     "inicio": 57.864,
+     "fim": 58.015
+    },
+    {
+     "texto": "conseguir,",
+     "inicio": 58.061,
+     "fim": 58.735
+    },
+    {
+     "texto": "ferve",
+     "inicio": 58.932,
+     "fim": 59.338
+    },
+    {
+     "texto": "a",
+     "inicio": 59.373,
+     "fim": 59.397
+    },
+    {
+     "texto": "água",
+     "inicio": 59.501,
+     "fim": 59.756
+    },
+    {
+     "texto": "do",
+     "inicio": 59.803,
+     "fim": 59.896
+    },
+    {
+     "texto": "rio",
+     "inicio": 59.954,
+     "fim": 60.128
+    },
+    {
+     "texto": "por",
+     "inicio": 60.174,
+     "fim": 60.325
+    },
+    {
+     "texto": "um",
+     "inicio": 60.383,
+     "fim": 60.441
+    },
+    {
+     "texto": "minuto.",
+     "inicio": 60.465,
+     "fim": 61.045
+    }
+   ]
+  },
+  {
+   "texto": "Em 1971, uma garota de 17 anos acordou exatamente assim.",
+   "inicio": 61.475,
+   "fim": 67.082,
+   "palavras": [
+    {
+     "texto": "Em",
+     "inicio": 61.475,
+     "fim": 61.649
+    },
+    {
+     "texto": "1971,",
+     "inicio": 61.695,
+     "fim": 63.181
+    },
+    {
+     "texto": "uma",
+     "inicio": 63.46,
+     "fim": 63.611
+    },
+    {
+     "texto": "garota",
+     "inicio": 63.657,
+     "fim": 64.017
+    },
+    {
+     "texto": "de",
+     "inicio": 64.064,
+     "fim": 64.122
+    },
+    {
+     "texto": "17",
+     "inicio": 64.18,
+     "fim": 64.702
+    },
+    {
+     "texto": "anos",
+     "inicio": 64.876,
+     "fim": 65.109
+    },
+    {
+     "texto": "acordou",
+     "inicio": 65.178,
+     "fim": 65.643
+    },
+    {
+     "texto": "exatamente",
+     "inicio": 65.759,
+     "fim": 66.595
+    },
+    {
+     "texto": "assim.",
+     "inicio": 66.63,
+     "fim": 67.082
+    }
+   ]
+  },
+  {
+   "texto": "Ela ouviu os aviões de resgate passarem por cima e ninguém viu ela.",
+   "inicio": 67.524,
+   "fim": 71.97,
+   "palavras": [
+    {
+     "texto": "Ela",
+     "inicio": 67.524,
+     "fim": 67.744
+    },
+    {
+     "texto": "ouviu",
+     "inicio": 67.767,
+     "fim": 68.081
+    },
+    {
+     "texto": "os",
+     "inicio": 68.116,
+     "fim": 68.185
+    },
+    {
+     "texto": "aviões",
+     "inicio": 68.255,
+     "fim": 68.708
+    },
+    {
+     "texto": "de",
+     "inicio": 68.743,
+     "fim": 68.812
+    },
+    {
+     "texto": "resgate",
+     "inicio": 68.859,
+     "fim": 69.393
+    },
+    {
+     "texto": "passarem",
+     "inicio": 69.439,
+     "fim": 69.857
+    },
+    {
+     "texto": "por",
+     "inicio": 69.915,
+     "fim": 70.043
+    },
+    {
+     "texto": "cima",
+     "inicio": 70.09,
+     "fim": 70.473
+    },
+    {
+     "texto": "e",
+     "inicio": 70.74,
+     "fim": 70.856
+    },
+    {
+     "texto": "ninguém",
+     "inicio": 70.914,
+     "fim": 71.274
+    },
+    {
+     "texto": "viu",
+     "inicio": 71.343,
+     "fim": 71.518
+    },
+    {
+     "texto": "ela.",
+     "inicio": 71.599,
+     "fim": 71.97
+    }
+   ]
+  },
+  {
+   "texto": "É por isso que o sinal importa.",
+   "inicio": 72.295,
+   "fim": 74.06,
+   "palavras": [
+    {
+     "texto": "É",
+     "inicio": 72.295,
+     "fim": 72.353
+    },
+    {
+     "texto": "por",
+     "inicio": 72.446,
+     "fim": 72.597
+    },
+    {
+     "texto": "isso",
+     "inicio": 72.655,
+     "fim": 72.829
+    },
+    {
+     "texto": "que",
+     "inicio": 72.876,
+     "fim": 72.946
+    },
+    {
+     "texto": "o",
+     "inicio": 72.98,
+     "fim": 73.015
+    },
+    {
+     "texto": "sinal",
+     "inicio": 73.062,
+     "fim": 73.329
+    },
+    {
+     "texto": "importa.",
+     "inicio": 73.387,
+     "fim": 74.06
+    }
+   ]
+  },
+  {
+   "texto": "Você sobreviveria?",
+   "inicio": 74.571,
+   "fim": 76.208,
+   "palavras": [
+    {
+     "texto": "Você",
+     "inicio": 74.571,
+     "fim": 74.873
+    },
+    {
+     "texto": "sobreviveria?",
+     "inicio": 74.966,
+     "fim": 76.208
+    }
+   ]
+  }
+ ]
+}
