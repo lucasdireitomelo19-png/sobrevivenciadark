@@ -1,0 +1,563 @@
+<title>Observatório Sobrevivência Dark</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: fundo de brasas e névoa em canvas fixo; por cima, placas escuras em grade (resumo, agentes, vídeos, agenda, atividade). Visual único, escuro, da marca. */
+:root {
+  color-scheme: dark;
+  --void: #060606;
+  --ink: #ece6dc;
+  --ink-dim: #b3aba1;
+  --ink-faint: #7a726b;
+  --plate: rgba(28, 18, 17, 0.62);
+  --plate-hi: rgba(48, 26, 24, 0.7);
+  --edge: rgba(236, 230, 220, 0.12);
+  --edge-hi: rgba(236, 230, 220, 0.26);
+  --accent: #e3141f;
+  --accent-soft: rgba(227, 20, 31, 0.18);
+  --ok: #5fd98f;
+  --warn: #ffc24a;
+  --bad: #ff4f8b;
+  --work: #ff8a3d;
+  --f-display: "Bebas Neue", "Oswald", Impact, sans-serif;
+  --f-label: "Oswald", "Arial Narrow", sans-serif;
+  --f-body: "Barlow", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --r: 6px;
+}
+* { box-sizing: border-box; }
+html, body { background: var(--void); color: var(--ink); }
+body { font-family: var(--f-body); font-size: 15px; line-height: 1.5; min-height: 100vh; }
+#sky { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; display: block; }
+.wrap {
+  position: relative; z-index: 1; max-width: 1280px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 56px;
+  display: grid; gap: 22px;
+}
+.glass {
+  background: linear-gradient(170deg, var(--plate-hi), var(--plate) 60%);
+  border: 1px solid var(--edge);
+  border-radius: var(--r);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.5);
+}
+header { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 14px; }
+.brand { display: flex; align-items: center; gap: 16px; }
+.mark { width: 64px; height: 58px; flex: none; filter: drop-shadow(0 0 10px rgba(227, 20, 31, 0.55)); }
+.brand h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(34px, 5.4vw, 58px); line-height: 0.95; margin: 0; letter-spacing: 0.02em; text-wrap: balance; }
+.brand h1 span { color: var(--accent); }
+.brand p { margin: 6px 0 0; color: var(--ink-dim); font-size: 14px; }
+.eyebrow { font-family: var(--f-label); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); }
+.clock { font-family: var(--f-mono); font-size: 13px; color: var(--ink-dim); padding: 8px 14px; border-radius: 999px; font-variant-numeric: tabular-nums; }
+.clock b { color: var(--ink); font-weight: 600; }
+
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.stat { padding: 14px 18px; display: grid; gap: 2px; min-width: 0; border-top: 3px solid var(--edge-hi); }
+.stat .n { font-family: var(--f-display); font-size: 42px; font-variant-numeric: tabular-nums; line-height: 1; letter-spacing: 0.02em; }
+.stat .l { font-family: var(--f-label); color: var(--ink-dim); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+.stat .sub { color: var(--ink-faint); font-size: 12.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.stat.warn { border-top-color: var(--warn); } .stat.warn .n { color: var(--warn); }
+.stat.work { border-top-color: var(--work); } .stat.work .n { color: var(--work); }
+.stat.ok { border-top-color: var(--ok); } .stat.ok .n { color: var(--ok); }
+.stat.next { border-top-color: var(--accent); }
+
+section > .head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+section h2 { font-family: var(--f-display); font-weight: 400; font-size: 28px; margin: 0; letter-spacing: 0.04em; }
+section .head .hint { color: var(--ink-faint); font-size: 13px; }
+
+.agents { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+.agent { padding: 16px; display: grid; gap: 10px; align-content: start; min-width: 0; position: relative; overflow: hidden; border-left: 3px solid var(--stripe, var(--edge)); }
+.agent .top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.agent .name { font-family: var(--f-label); font-weight: 600; font-size: 17px; letter-spacing: 0.02em; }
+.agent .role { color: var(--ink-faint); font-size: 12.5px; margin-top: -6px; }
+.agent .doing { color: var(--ink-dim); font-size: 13.5px; min-height: 2.9em; }
+.agent .meta { display: flex; justify-content: space-between; gap: 8px; font-family: var(--f-mono); font-size: 11px; color: var(--ink-faint); }
+.agent a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+.pill { display: inline-flex; align-items: center; gap: 6px; font-family: var(--f-label); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
+.pill::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.s-work { color: var(--work); } .s-wait { color: var(--warn); } .s-idle { color: var(--ok); } .s-fail { color: var(--bad); } .s-none { color: var(--ink-faint); }
+.s-work.pill::before { animation: pulse 1.2s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: 0.2; } }
+.floor-label { grid-column: 1 / -1; margin-top: 4px; display: flex; align-items: center; gap: 10px; }
+.floor-label::after { content: ""; flex: 1; height: 1px; background: var(--edge); }
+
+.cols { display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+.filters { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-family: var(--f-label); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-dim); background: var(--plate); border: 1px solid var(--edge); border-radius: 999px; padding: 5px 12px; cursor: pointer; }
+.chip[aria-pressed="true"] { color: var(--ink); border-color: var(--accent); background: var(--accent-soft); }
+.chip:focus-visible, .vcard:focus-visible, button:focus-visible, input:focus-visible, a:focus-visible { outline: 2px solid var(--warn); outline-offset: 2px; }
+
+.videos { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 14px; }
+.vcard { all: unset; cursor: pointer; display: grid; grid-template-rows: auto 1fr; overflow: hidden; min-width: 0; }
+.vcard .frame { position: relative; aspect-ratio: 9 / 16; max-width: 100%; background: #120a09; overflow: hidden; border-bottom: 1px solid var(--edge); }
+.vcard.longo { grid-column: span 2; }
+.vcard.longo .frame { aspect-ratio: 16 / 9; }
+.vcard .frame video, .vcard .frame img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+.vcard:hover .frame video, .vcard:hover .frame img { transform: scale(1.04); }
+.vcard .badge { position: absolute; top: 8px; left: 8px; }
+.vcard .num { position: absolute; bottom: 8px; right: 8px; font-family: var(--f-mono); font-size: 11px; padding: 3px 7px; border-radius: 4px; background: rgba(6, 6, 6, 0.75); color: var(--ink-dim); }
+.vcard .body { padding: 12px 12px 14px; display: grid; gap: 6px; align-content: start; }
+.vcard .t { font-weight: 600; font-size: 14px; line-height: 1.3; }
+.vcard .d { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-faint); display: flex; justify-content: space-between; gap: 6px; }
+.vcard .d .when { color: var(--ink-dim); }
+.tag { font-family: var(--f-label); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; background: var(--accent); color: var(--ink); }
+
+.side { display: grid; gap: 22px; }
+.panel { padding: 16px 18px; }
+.agenda, .feed { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.agenda li { display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 10px; align-items: center; }
+.agenda .date { text-align: center; border: 1px solid var(--edge-hi); border-radius: 4px; padding: 4px 0; line-height: 1.05; }
+.agenda .date b { display: block; font-size: 26px; font-family: var(--f-display); font-weight: 400; }
+.agenda .date small { font-family: var(--f-label); font-size: 10px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.12em; }
+.agenda .what { font-size: 13.5px; min-width: 0; }
+.agenda .what small { display: block; color: var(--ink-faint); font-size: 12px; }
+.feed li { display: grid; grid-template-columns: 10px minmax(0, 1fr); gap: 10px; font-size: 13px; }
+.feed .dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; margin-top: 6px; }
+.feed .who { font-weight: 600; color: var(--ink); }
+.feed .ago { font-family: var(--f-mono); font-size: 11px; color: var(--ink-faint); }
+.feed .txt { color: var(--ink-dim); }
+.agenda li.empty, .feed li.empty { display: block; }
+.empty { color: var(--ink-faint); font-size: 13.5px; padding: 18px; text-align: center; }
+
+dialog { padding: 0; border: none; background: transparent; color: var(--ink); max-width: min(980px, calc(100vw - 24px)); width: 100%; max-height: calc(100dvh - 24px); overflow-y: auto; overscroll-behavior: contain; }
+dialog::backdrop { background: rgba(0, 0, 0, 0.78); backdrop-filter: blur(6px); }
+.modal { position: relative; display: grid; grid-template-columns: minmax(0, auto) minmax(0, 1fr); overflow: hidden; align-items: start; background: #100909; }
+.modal .player { background: #000; display: flex; align-items: center; justify-content: center; position: relative; min-height: 200px; }
+.vload { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-family: var(--f-mono); font-size: 12px; color: var(--ink); background: rgba(6, 6, 6, 0.8); border: 1px solid var(--edge); border-radius: 4px; padding: 6px 10px; pointer-events: none; white-space: nowrap; }
+.ph { position: absolute; inset: 0; display: grid; place-items: center; align-content: center; gap: 10px; padding: 12px; text-align: center; background: radial-gradient(circle at 50% 75%, rgba(227, 20, 31, 0.35), transparent 60%), #0c0707; }
+.ph-play { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--edge-hi); background: rgba(255, 255, 255, 0.06); font-size: 16px; padding-left: 3px; }
+.ph-t { font-family: var(--f-display); font-size: 20px; line-height: 1.05; color: var(--ink); text-wrap: balance; }
+.modal video { display: block; max-height: 80vh; max-width: 100%; }
+.modal.short .player video { width: min(360px, 42vw); }
+.modal.longo { grid-template-columns: 1fr; }
+.modal.longo video { width: 100%; max-height: 56vh; }
+.modal .info { padding: 18px 20px 24px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.dl-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.seg { display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 6px; background: rgba(0, 0, 0, 0.45); border: 1px solid var(--edge); }
+.seg button { font-family: var(--f-label); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-dim); background: transparent; border: 1px solid transparent; border-radius: 4px; padding: 6px 14px; cursor: pointer; }
+.seg button[aria-pressed="true"].v-pronto { color: var(--void); background: var(--ink-dim); }
+.seg button[aria-pressed="true"].v-programado { color: var(--void); background: var(--warn); }
+.seg button[aria-pressed="true"].v-postado { color: var(--void); background: var(--ok); }
+.seg button[disabled] { cursor: progress; opacity: 0.6; }
+.pub { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 13px; color: var(--ink-dim); }
+.pub input { font: inherit; font-size: 13px; color: var(--ink); background: rgba(0, 0, 0, 0.45); border: 1px solid var(--edge-hi); border-radius: 4px; padding: 5px 8px; color-scheme: dark; }
+.st-programado { color: var(--warn); } .st-postado { color: var(--ok); }
+.vcard.is-postado .frame { opacity: 0.55; }
+.btn { font-family: var(--f-label); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); background: rgba(236, 230, 220, 0.08); border: 1px solid var(--edge-hi); border-radius: 4px; padding: 5px 10px; cursor: pointer; }
+.btn:hover { background: rgba(236, 230, 220, 0.16); }
+.btn.primary { background: var(--accent); border-color: var(--accent); font-size: 13px; padding: 7px 14px; }
+.btn.primary:hover { background: #f02a34; }
+.btn[disabled] { opacity: 0.6; cursor: progress; }
+.dl-msg { font-size: 12.5px; color: var(--ink-faint); }
+.modal h3 { font-family: var(--f-display); font-weight: 400; font-size: 30px; line-height: 1; margin: 0; letter-spacing: 0.02em; text-wrap: balance; }
+.copy { display: grid; gap: 4px; }
+.copy .lbl { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.copy pre { margin: 0; white-space: pre-wrap; word-break: break-word; font-family: var(--f-body); font-size: 13px; color: var(--ink-dim); background: rgba(0, 0, 0, 0.45); border: 1px solid var(--edge); border-radius: 4px; padding: 10px 12px; max-height: 160px; overflow-y: auto; }
+.close { position: absolute; top: 10px; right: 10px; z-index: 2; }
+.notes { font-size: 12.5px; color: var(--ink-faint); }
+
+@media (max-width: 900px) {
+  .cols { grid-template-columns: minmax(0, 1fr); }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .modal { grid-template-columns: 1fr; }
+  .modal.short .player video { width: auto; max-height: 58vh; }
+  .modal.longo video { max-height: none; }
+}
+@media (max-width: 420px) {
+  .videos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .vcard.longo { grid-column: 1 / -1; }
+  .mark { width: 48px; height: 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before { animation: none !important; transition: none !important; }
+}
+</style>
+
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <svg class="mark" viewBox="140 160 800 710" aria-hidden="true">
+        <path d="M540 170 L930 860 L150 860 Z" fill="none" stroke="#e3141f" stroke-width="56" stroke-linejoin="round"/>
+        <g fill="#ece6dc" transform="translate(540 600) scale(1.25)">
+          <circle cx="28" cy="-150" r="30"/>
+          <path d="M-10 -110 L40 -112 L70 -50 L120 -30 L112 -10 L52 -30 L36 -60 L22 0 L80 50 L70 150 L44 148 L52 66 L4 30 L-30 110 L-110 120 L-108 94 L-52 86 L-20 -10 L-6 -80 L-40 -60 L-60 -10 L-84 -18 L-56 -86 Z"/>
+        </g>
+      </svg>
+      <div>
+        <div class="eyebrow">Canal 2 · @SobrevivenciaDark</div>
+        <h1>Observatório <span>Sobrevivência Dark</span></h1>
+        <p>Os agentes do canal e os POVs de sobrevivência, num lugar só.</p>
+      </div>
+    </div>
+    <div class="clock glass" id="clock">Brasília <b>--:--</b></div>
+  </header>
+
+  <div class="stats" id="stats">
+    <div class="stat glass work"><div class="n" id="st-work">–</div><div class="l">Trabalhando agora</div><div class="sub" id="st-work-sub">&nbsp;</div></div>
+    <div class="stat glass warn"><div class="n" id="st-wait">–</div><div class="l">Esperando você</div><div class="sub" id="st-wait-sub">&nbsp;</div></div>
+    <div class="stat glass ok"><div class="n" id="st-ready">–</div><div class="l">Vídeos prontos</div><div class="sub" id="st-ready-sub">&nbsp;</div></div>
+    <div class="stat glass next"><div class="n" id="st-next">–</div><div class="l">Próxima publicação</div><div class="sub" id="st-next-sub">&nbsp;</div></div>
+  </div>
+
+  <section>
+    <div class="head"><h2>Agentes</h2><span class="hint">Status pelo último aviso de cada conversa</span></div>
+    <div class="agents" id="agents"><div class="empty glass">Carregando os agentes…</div></div>
+  </section>
+
+  <div class="cols">
+    <section>
+      <div class="head">
+        <h2>Vídeos recentes</h2>
+        <div class="filters" role="group" aria-label="Filtrar vídeos">
+          <button class="chip" id="f-todos" data-f="todos" aria-pressed="true">Todos</button>
+          <button class="chip" id="f-short" data-f="short" aria-pressed="false">Shorts</button>
+          <button class="chip" id="f-longo" data-f="longo" aria-pressed="false">Longos</button>
+          <button class="chip" id="f-agenda" data-f="agenda" aria-pressed="false">Agendados</button>
+          <button class="chip" id="f-postado" data-f="postado" aria-pressed="false">Postados</button>
+        </div>
+      </div>
+      <div class="videos" id="videos"><div class="empty glass">Carregando os vídeos…</div></div>
+    </section>
+
+    <aside class="side">
+      <section class="panel glass">
+        <div class="head"><h2>Agenda</h2></div>
+        <ul class="agenda" id="agenda"><li class="empty">Nenhuma publicação marcada.</li></ul>
+      </section>
+      <section class="panel glass">
+        <div class="head"><h2>Atividade</h2></div>
+        <ul class="feed" id="feed"><li class="empty">Sem avisos ainda.</li></ul>
+      </section>
+    </aside>
+  </div>
+</div>
+
+<dialog id="dlg" aria-label="Detalhes do vídeo">
+  <div class="modal glass" id="modal"></div>
+</dialog>
+
+<script>
+(() => {
+  /* ---------- fundo: horizonte em brasa, névoa e brasas subindo ---------- */
+  const cv = document.getElementById("sky"), cx = cv.getContext("2d");
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let W, H, dpr, embers = [], bg = null, t0 = performance.now();
+  function seed() {
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    W = cv.width = innerWidth * dpr; H = cv.height = innerHeight * dpr;
+    const n = Math.round((innerWidth * innerHeight) / 9000);
+    embers = Array.from({ length: n }, () => ({
+      x: Math.random() * W, y: Math.random() * H,
+      r: (Math.random() ** 2 * 2.2 + 0.6) * dpr, vy: (Math.random() * 0.35 + 0.12) * dpr,
+      sway: Math.random() * 0.8 + 0.2, ph: Math.random() * 6.28, a: Math.random() * 0.6 + 0.25,
+      hot: Math.random() < 0.3
+    }));
+    bg = document.createElement("canvas"); bg.width = W; bg.height = H;
+    const g = bg.getContext("2d");
+    g.fillStyle = "#060606"; g.fillRect(0, 0, W, H);
+    const glow = g.createRadialGradient(W * 0.5, H * 1.05, 0, W * 0.5, H * 1.05, Math.max(W, H) * 0.75);
+    glow.addColorStop(0, "rgba(140, 14, 20, 0.55)"); glow.addColorStop(0.45, "rgba(60, 8, 10, 0.35)"); glow.addColorStop(1, "rgba(0,0,0,0)");
+    g.fillStyle = glow; g.fillRect(0, 0, W, H);
+    // faixas de névoa
+    for (let i = 0; i < 26; i++) {
+      const y = H * (0.15 + Math.random() * 0.8), rw = W * (0.3 + Math.random() * 0.5), rh = H * (0.04 + Math.random() * 0.06);
+      const x = Math.random() * W, fg = g.createRadialGradient(x, y, 0, x, y, rw);
+      fg.addColorStop(0, `rgba(170, 150, 140, ${0.025 + Math.random() * 0.03})`); fg.addColorStop(1, "rgba(0,0,0,0)");
+      g.save(); g.translate(x, y); g.scale(1, rh / rw); g.translate(-x, -y); g.fillStyle = fg; g.fillRect(0, 0, W, H * 4); g.restore();
+    }
+    // serra no horizonte
+    let s = 7; const rnd = () => (s = (s * 16807) % 2147483647) / 2147483647;
+    [[0.9, 0.12, 60, "#100707"], [0.95, 0.08, 40, "#070404"]].forEach(([base, amp, step, col]) => {
+      g.beginPath(); g.moveTo(0, H); g.lineTo(0, H * base);
+      for (let x = 0; x <= W + step * dpr; x += step * dpr) g.lineTo(x, H * base - rnd() * H * amp);
+      g.lineTo(W, H); g.closePath(); g.fillStyle = col; g.fill();
+    });
+  }
+  function draw(now) {
+    const t = (now - t0) / 1000;
+    cx.drawImage(bg, 0, 0);
+    for (const e of embers) {
+      if (!still) { e.y -= e.vy; if (e.y < -10) { e.y = H + 10; e.x = Math.random() * W; } }
+      const x = e.x + Math.sin(t * e.sway + e.ph) * 12 * dpr;
+      const a = e.a * (0.6 + 0.4 * Math.sin(t * 2 + e.ph)) * Math.min(1, e.y / (H * 0.3));
+      cx.fillStyle = e.hot ? `rgba(255, 180, 110, ${a})` : `rgba(255, 70, 40, ${a})`;
+      cx.beginPath(); cx.arc(x, e.y, e.r, 0, 6.283); cx.fill();
+    }
+    if (!still) requestAnimationFrame(draw);
+  }
+  seed(); requestAnimationFrame(draw);
+  addEventListener("resize", () => { seed(); if (still) draw(performance.now()); });
+
+  /* ---------- relógio ---------- */
+  const clock = document.getElementById("clock");
+  const fmtClock = new Intl.DateTimeFormat("pt-BR", { timeZone: "America/Sao_Paulo", weekday: "short", day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
+  const tick = () => { clock.innerHTML = ""; clock.append("Brasília "); const b = document.createElement("b"); b.textContent = fmtClock.format(new Date()); clock.append(b); };
+  tick(); setInterval(tick, 30000);
+
+  /* ---------- estado ---------- */
+  const S = { agentes: [], eventos: [], videos: [], filtro: "todos" };
+  try { S.filtro = localStorage.getItem("obs-sd-filtro") || "todos"; } catch (e) {}
+
+  const LABEL = { work: "Trabalhando", wait: "Esperando você", idle: "Livre", fail: "Falhou", none: "Sem aviso" };
+  const ANDARES = ["Direção & Marca", "Pesquisa & Roteiros", "Produção de Vídeo"];
+  const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+  const pill = (st) => el("span", "pill s-" + st, LABEL[st] || st);
+  const stripe = { work: "var(--work)", wait: "var(--warn)", idle: "var(--ok)", fail: "var(--bad)", none: "var(--edge)" };
+
+  function ago(iso) {
+    if (!iso) return "";
+    const m = Math.round((Date.now() - new Date(iso).getTime()) / 60000);
+    if (m < 1) return "agora";
+    if (m < 60) return `há ${m} min`;
+    const h = Math.round(m / 60);
+    if (h < 24) return `há ${h} h`;
+    return `há ${Math.round(h / 24)} d`;
+  }
+  const DOW = ["dom", "seg", "ter", "qua", "qui", "sex", "sáb"];
+  function parseDay(s) { if (!s) return null; const [y, m, d] = s.split("-").map(Number); return y ? new Date(y, m - 1, d) : null; }
+  function dayLabel(s) { const d = parseDay(s); return d ? `${DOW[d.getDay()]} ${String(d.getDate()).padStart(2, "0")}/${String(d.getMonth() + 1).padStart(2, "0")}` : ""; }
+  const todayStr = () => new Intl.DateTimeFormat("en-CA", { timeZone: "America/Sao_Paulo" }).format(new Date());
+
+  function lastEventFor(a) {
+    const ids = [a.sessao].concat(a.anteriores || []);
+    let best = null;
+    for (const e of S.eventos) if (ids.includes(e.sessao) && (!best || (e.ts || "") > (best.ts || ""))) best = e;
+    return best;
+  }
+
+  /* ---------- render ---------- */
+  function renderAgents() {
+    const box = document.getElementById("agents"); box.innerHTML = "";
+    if (!S.agentes.length) { box.append(el("div", "empty glass", "Nenhum agente cadastrado ainda.")); return { work: [], wait: [] }; }
+    const work = [], wait = [];
+    const sorted = [...S.agentes].sort((a, b) => (a.ordem || 0) - (b.ordem || 0));
+    for (const andar of ANDARES.concat([...new Set(sorted.map(a => a.andar))].filter(x => !ANDARES.includes(x)))) {
+      const list = sorted.filter(a => a.andar === andar);
+      if (!list.length) continue;
+      box.append(el("div", "eyebrow floor-label", andar));
+      for (const a of list) {
+        const ev = lastEventFor(a), st = ev ? (ev.estado === "arq" ? "none" : ev.estado) : "none";
+        if (st === "work") work.push(a.nome); if (st === "wait") wait.push(a.nome);
+        const c = el("article", "agent glass"); c.style.setProperty("--stripe", stripe[st] || "var(--edge)");
+        const top = el("div", "top"); top.append(el("div", "name", a.nome), pill(st)); c.append(top);
+        c.append(el("div", "role", a.papel || ""));
+        c.append(el("div", "doing", ev ? ev.faz : "Ainda não mandou aviso para este painel."));
+        const meta = el("div", "meta"); meta.append(el("span", "", ev ? ago(ev.ts) : ""));
+        if (a.sessao) { const l = el("a", "", "abrir conversa ↗"); l.href = "https://claude.ai/code/" + a.sessao; l.target = "_blank"; l.rel = "noopener"; meta.append(l); }
+        c.append(meta); box.append(c);
+      }
+    }
+    return { work, wait };
+  }
+
+  function visibleVideos() {
+    const v = [...S.videos].sort((a, b) => (b.ordem || 0) - (a.ordem || 0));
+    if (S.filtro === "short" || S.filtro === "longo") return v.filter(x => x.tipo === S.filtro);
+    if (S.filtro === "agenda") return v.filter(x => x.status !== "Postado" && x.data_pub && x.data_pub >= todayStr()).sort((a, b) => a.data_pub.localeCompare(b.data_pub));
+    if (S.filtro === "postado") return v.filter(x => x.status === "Postado");
+    return v;
+  }
+
+  const FINE = matchMedia("(hover: hover) and (pointer: fine)").matches, COARSE = !FINE;
+
+  function renderVideos() {
+    const box = document.getElementById("videos"); box.innerHTML = "";
+    document.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", String(c.dataset.f === S.filtro)));
+    const list = visibleVideos();
+    if (!list.length) { box.append(el("div", "empty glass", S.videos.length ? "Nenhum vídeo neste filtro." : "Nenhum vídeo entregue ainda. Quando um agente terminar um POV, ele aparece aqui.")); return; }
+    for (const v of list) {
+      const b = el("button", "vcard glass " + (v.tipo === "longo" ? "longo" : "short") + (v.status === "Postado" ? " is-postado" : ""));
+      b.setAttribute("aria-label", "Abrir " + v.nome);
+      const fr = el("div", "frame");
+      if (v.thumb_url) { const im = el("img"); im.src = v.thumb_url; im.alt = ""; im.loading = "lazy"; fr.append(im); }
+      else if (v.video_url && FINE) { const vd = el("video"); vd.src = v.video_url + "#t=2"; vd.muted = true; vd.preload = "metadata"; vd.playsInline = true; fr.append(vd); }
+      else { const ph = el("div", "ph"); ph.append(el("span", "ph-play", "▶"), el("span", "ph-t", v.nome)); fr.append(ph); }
+      const bd = el("div", "badge"); bd.append(el("span", "tag", v.tipo === "longo" ? "Longo" : "Short")); fr.append(bd);
+      fr.append(el("span", "num", "#" + String(v.ordem).padStart(2, "0")));
+      b.append(fr);
+      const body = el("div", "body");
+      body.append(el("div", "t", (v.legendas && v.legendas.yt_titulo || v.nome).replace(/\s*#shorts\s*$/i, "")));
+      const d = el("div", "d"); d.append(el("span", "st-" + (v.status || "").toLowerCase(), (v.status === "Postado" ? "✓ " : "") + (v.status || ""))); d.append(el("span", "when", v.data_pub ? dayLabel(v.data_pub) : "sem data"));
+      body.append(d); b.append(body);
+      b.addEventListener("click", () => openVideo(v));
+      box.append(b);
+    }
+  }
+
+  function renderSide() {
+    const ag = document.getElementById("agenda"); ag.innerHTML = "";
+    const up = S.videos.filter(v => v.status !== "Postado" && v.data_pub && v.data_pub >= todayStr()).sort((a, b) => a.data_pub.localeCompare(b.data_pub) || a.ordem - b.ordem);
+    if (!up.length) ag.append(el("li", "empty", "Nenhuma publicação marcada."));
+    for (const v of up) {
+      const d = parseDay(v.data_pub), li = el("li");
+      const box = el("div", "date"); box.append(el("b", "", String(d.getDate()).padStart(2, "0")), el("small", "", DOW[d.getDay()]));
+      const w = el("div", "what", v.nome); w.append(el("small", "", (v.tipo === "longo" ? "Longo" : "Short") + " · #" + v.ordem + (v.status === "Programado" ? " · programado" : "")));
+      li.append(box, w); ag.append(li);
+    }
+    const fd = document.getElementById("feed"); fd.innerHTML = "";
+    const names = Object.fromEntries(S.agentes.flatMap(a => [a.sessao].concat(a.anteriores || []).map(s => [s, a.nome])));
+    const evs = [...S.eventos].sort((a, b) => (b.ts || "").localeCompare(a.ts || "")).slice(0, 10);
+    if (!evs.length) fd.append(el("li", "empty", "Sem avisos ainda."));
+    for (const e of evs) {
+      const st = e.estado === "arq" ? "none" : e.estado;
+      const li = el("li", "s-" + st); li.append(el("span", "dot"));
+      const c = el("div"); const top = el("div"); top.append(el("span", "who", names[e.sessao] || e.titulo || "Agente"), document.createTextNode(" "), el("span", "ago", ago(e.ts)));
+      c.append(top, el("div", "txt", e.faz || "")); li.append(c); fd.append(li);
+    }
+    return up;
+  }
+
+  function renderAll() {
+    const { work, wait } = renderAgents(); renderVideos(); const up = renderSide();
+    const set = (id, v) => { document.getElementById(id).textContent = v; };
+    set("st-work", work.length); set("st-work-sub", work.join(", ") || "ninguém agora");
+    set("st-wait", wait.length); set("st-wait-sub", wait.join(", ") || "nada pendente");
+    const ready = S.videos.filter(v => v.status === "Pronto");
+    set("st-ready", ready.length); set("st-ready-sub", `${S.videos.filter(v => v.status === "Programado").length} programados · ${S.videos.filter(v => v.status === "Postado").length} postados`);
+    if (up.length) { set("st-next", dayLabel(up[0].data_pub)); set("st-next-sub", up.filter(v => v.data_pub === up[0].data_pub).map(v => v.nome).join(" · ")); }
+    else { set("st-next", "—"); set("st-next-sub", "nada agendado"); }
+  }
+
+  /* ---------- modal do vídeo ---------- */
+  const dlg = document.getElementById("dlg"), modal = document.getElementById("modal");
+  function copyBlock(label, text) {
+    const w = el("div", "copy"), l = el("div", "lbl"); l.append(el("span", "eyebrow", label));
+    const btn = el("button", "btn", "Copiar"); const pre = el("pre", "", text);
+    btn.addEventListener("click", () => {
+      const done = () => { btn.textContent = "Copiado"; setTimeout(() => btn.textContent = "Copiar", 1600); };
+      const sel = () => { const r = document.createRange(); r.selectNodeContents(pre); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Selecionado"; };
+      try { navigator.clipboard.writeText(text).then(done, sel); } catch (e) { sel(); }
+    });
+    l.append(btn); w.append(l, pre); return w;
+  }
+  let downloadsP = null;
+  function saveButton(label, url, base, ext, msg, primary) {
+    const b = el("button", "btn" + (primary ? " primary" : ""), label);
+    b.addEventListener("click", async () => {
+      downloadsP = downloadsP || (window.claude ? window.claude.use("downloads") : Promise.resolve(null));
+      const downloads = await downloadsP;
+      if (!downloads) { msg.textContent = "Download indisponível nesta visualização. Abra o Observatório no claude.ai."; return; }
+      b.disabled = true; const old = b.textContent; b.textContent = "Preparando…"; msg.textContent = "";
+      try {
+        const res = await fetch(url); if (!res.ok) throw new Error("http " + res.status);
+        const blob = await res.blob();
+        const e = ext || ((blob.type.split("/")[1] || "jpg").replace("jpeg", "jpg"));
+        await downloads.save({ filename: base + "." + e, data: blob });
+        msg.textContent = "Arquivo enviado para download.";
+      } catch (err) {
+        const c = err && err.code;
+        msg.textContent = c === "declined" ? "Download cancelado." : c === "rate_limited" ? "Já tem um download aberto. Tente de novo em instantes." : "Não deu para baixar agora. Tente de novo.";
+      } finally { b.disabled = false; b.textContent = old; }
+    });
+    return b;
+  }
+  let DB = null;
+  async function saveVideo(v, patch, msg) {
+    if (!DB) { msg.textContent = "Entre no claude.ai para salvar."; return false; }
+    try { await DB.collection("videos").doc(v.id).update(Object.assign({ atualizado: new Date().toISOString() }, patch)); Object.assign(v, patch); msg.textContent = "Salvo."; return true; }
+    catch (e) { msg.textContent = "Não deu para salvar. Tente de novo."; return false; }
+  }
+  function statusControls(v) {
+    const wrap = el("div"); wrap.style.display = "grid"; wrap.style.gap = "8px";
+    const seg = el("div", "seg"); seg.setAttribute("role", "group"); seg.setAttribute("aria-label", "Situação do vídeo");
+    const msg = el("div", "dl-msg");
+    const date = el("input"); date.type = "date"; date.id = "pub-date"; date.value = v.data_pub || "";
+    const opts = [["Pronto", "Pronto"], ["Programado", "Programado"], ["Postado", "✓ Postado"]];
+    const btns = opts.map(([val, label]) => {
+      const b = el("button", "v-" + val.toLowerCase(), label); b.id = "st-btn-" + val.toLowerCase();
+      b.setAttribute("aria-pressed", String((v.status || "Pronto") === val));
+      b.addEventListener("click", async () => {
+        if (v.status === val) return;
+        btns.forEach(x => x.disabled = true);
+        const patch = { status: val };
+        if (val === "Postado") patch.postado_em = new Date().toISOString();
+        if (val === "Programado" && !v.data_pub) patch.data_pub = todayStr();
+        if (await saveVideo(v, patch, msg)) { btns.forEach(x => x.setAttribute("aria-pressed", String(x === b))); date.value = v.data_pub || ""; }
+        btns.forEach(x => x.disabled = false);
+      });
+      seg.append(b); return b;
+    });
+    const pub = el("label", "pub"); pub.append("Data de publicação");
+    date.addEventListener("change", () => saveVideo(v, { data_pub: date.value }, msg));
+    pub.append(date);
+    if (v.postado_em) pub.append(el("span", "", "· postado " + ago(v.postado_em)));
+    wrap.append(seg, pub, msg);
+    return wrap;
+  }
+  function openVideo(v) {
+    modal.innerHTML = ""; modal.className = "modal glass " + (v.tipo === "longo" ? "longo" : "short");
+    const close = el("button", "btn close", "Fechar"); close.addEventListener("click", () => dlg.close()); modal.append(close);
+    const pl = el("div", "player");
+    if (v.video_url) {
+      const vd = el("video"); vd.controls = true; vd.playsInline = true; vd.setAttribute("playsinline", ""); vd.preload = "auto"; if (v.thumb_url) vd.poster = v.thumb_url;
+      const st = el("div", "vload", "Carregando vídeo…"); pl.append(vd, st);
+      let ok = false, fell = false;
+      vd.addEventListener("loadeddata", () => { ok = true; st.hidden = true; });
+      const fallback = async () => {
+        if (ok || fell) return; fell = true; st.hidden = false;
+        try {
+          const res = await fetch(v.video_url); if (!res.ok) throw 0;
+          const total = +res.headers.get("content-length") || 0, reader = res.body && res.body.getReader();
+          let blob;
+          if (reader) { const parts = []; let got = 0; for (;;) { const { done, value } = await reader.read(); if (done) break; parts.push(value); got += value.length; st.textContent = "Carregando vídeo… " + (total ? Math.round(got / total * 100) + "%" : Math.round(got / 1048576) + " MB"); } blob = new Blob(parts, { type: "video/mp4" }); }
+          else blob = new Blob([await res.arrayBuffer()], { type: "video/mp4" });
+          if (!dlg.open) return;
+          const u = URL.createObjectURL(blob); vd.src = u; vd.load();
+          dlg.addEventListener("close", () => URL.revokeObjectURL(u), { once: true });
+        } catch (e) { st.textContent = "Não deu para carregar o vídeo. Feche e abra de novo."; }
+      };
+      vd.addEventListener("error", fallback);
+      setTimeout(fallback, COARSE ? 2500 : 6000);
+      vd.src = v.video_url;
+    }
+    else pl.append(el("div", "empty", "Arquivo de vídeo não salvo aqui."));
+    modal.append(pl);
+    const info = el("div", "info");
+    info.append(el("div", "eyebrow", (v.tipo === "longo" ? "Longo" : "Short") + " · #" + v.ordem));
+    info.append(el("h3", "", v.nome));
+    info.append(statusControls(v));
+    const dl = el("div", "dl-row"), msg = el("div", "dl-msg");
+    const base = ("sd-" + v.ordem + " " + (v.nome || "video")).replace(/[\\/:*?"<>|#]+/g, "").replace(/\s+/g, " ").trim();
+    if (v.video_url) dl.append(saveButton("Baixar vídeo", v.video_url, base, "mp4", msg, true));
+    if (v.thumb_url) dl.append(saveButton("Baixar thumb", v.thumb_url, base + " thumb", null, msg, false));
+    info.append(dl, msg);
+    const L = v.legendas || {};
+    [["Título do YouTube", L.yt_titulo], ["Descrição do YouTube", L.yt_desc], ["TikTok", L.tiktok], ["Reels", L.reels], ["Tags", L.tags], ["Comentário fixado", L.comentario]]
+      .forEach(([k, t]) => { if (t) info.append(copyBlock(k, t)); });
+    if (v.notas) info.append(el("div", "notes", v.notas));
+    modal.append(info);
+    dlg.showModal(); dlg.scrollTop = 0;
+  }
+  dlg.addEventListener("close", () => { const vd = modal.querySelector("video"); if (vd) vd.pause(); });
+  dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
+
+  document.querySelectorAll(".chip").forEach(c => c.addEventListener("click", () => {
+    S.filtro = c.dataset.f; try { localStorage.setItem("obs-sd-filtro", S.filtro); } catch (e) {}
+    renderVideos();
+  }));
+
+  /* ---------- dados ---------- */
+  renderAll();
+  setInterval(() => { renderAgents(); renderSide(); }, 60000);
+  (async () => {
+    const db = window.claude && await window.claude.use("db");
+    DB = db;
+    if (!db) {
+      document.getElementById("agents").innerHTML = "";
+      document.getElementById("agents").append(el("div", "empty glass", "Entre no claude.ai para ver os agentes e os vídeos."));
+      document.getElementById("videos").innerHTML = "";
+      return;
+    }
+    const sub = (name, key) => db.collection(name).onSnapshot(
+      (snap) => { S[key] = snap.docs.map(d => Object.assign({ id: d.id }, d.data())); renderAll(); },
+      () => {}
+    );
+    sub("agentes", "agentes"); sub("eventos", "eventos"); sub("videos", "videos");
+  })();
+})();
+</script>
