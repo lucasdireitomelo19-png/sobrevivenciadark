@@ -1,13 +1,16 @@
 import React from 'react';
 import { AbsoluteFill, interpolate, random } from 'remotion';
-import { BEBAS, COR, OSWALD } from '../../ui/fontes';
+import { COR, FONTES, fs } from '../../ui/fontes';
 import { Triangulo } from '../../ui/Triangulo';
 import { clamp, easeOut } from '../../motor/matematica';
 import { B, OFFSET, T, cenaEm, tBloco } from './diretor';
 
 // Camada 2D por cima do 3D. Tudo calculado a partir de `s` (segundos do vídeo).
 
-const sombra = '0 0 18px rgba(0,0,0,.9), 0 6px 0 #000, 0 0 2px #000';
+const SOMBRA_HD = '0 0 18px rgba(0,0,0,.9), 0 6px 0 #000, 0 0 2px #000';
+// contorno duro em degraus (pixel art)
+const SOMBRA_PIXEL = '6px 0 #000, -6px 0 #000, 0 6px #000, 0 -6px #000, 6px 6px #000, -6px 6px #000, 6px -6px #000, -6px -6px #000, 0 12px #000';
+const sombraAtual = () => (FONTES.pixel ? SOMBRA_PIXEL : SOMBRA_HD);
 const DESTAQUES = ['cinto', 'janela', 'crianças', 'fora', 'não', 'morrem', 'minuto', 'trava', 'lateral', 'margem', 'emergência', 'velha', 'nova', 'sobreviveria'];
 const limpa = (w: string) => w.toLowerCase().replace(/[^\p{L}]/gu, '');
 
@@ -31,7 +34,7 @@ export const Legenda: React.FC<{ s: number }> = ({ s }) => {
   const ultimo = atual[atual.length - 1];
   if (s > ultimo.fim + 0.6 && grupos.indexOf(atual) === grupos.length - 1) return null;
   return (
-    <div style={{ position: 'absolute', top: 1120, left: 60, right: 60, textAlign: 'center', fontFamily: BEBAS, fontSize: 128, lineHeight: 1.02, letterSpacing: 2, textShadow: sombra }}>
+    <div style={{ position: 'absolute', top: 1120, left: 60, right: 60, textAlign: 'center', fontFamily: FONTES.titulo, fontSize: fs(128), letterSpacing: FONTES.pixel ? 0 : 2, lineHeight: FONTES.pixel ? 1.5 : 1.02, textShadow: sombraAtual() }}>
       {atual.map((w, i) => {
         const ativo = s >= w.inicio - 0.03;
         const pop = easeOut(clamp((s - w.inicio + 0.03) / 0.12));
@@ -53,7 +56,7 @@ export const SeloPOV: React.FC<{ s: number }> = ({ s }) => {
   const a = clamp(s / 0.2) * clamp((3.2 - s) / 0.3);
   return (
     <div style={{ position: 'absolute', top: 230, left: 70, opacity: a, display: 'flex', alignItems: 'center', gap: 18 }}>
-      <div style={{ background: COR.vermelho, color: COR.osso, fontFamily: BEBAS, fontSize: 92, padding: '4px 26px 0', letterSpacing: 4 }}>POV</div>
+      <div style={{ background: COR.vermelho, color: COR.osso, fontFamily: FONTES.titulo, fontSize: fs(92), padding: '4px 26px 0', letterSpacing: 4 }}>POV</div>
     </div>
   );
 };
@@ -68,8 +71,8 @@ export const Contador: React.FC<{ s: number }> = ({ s }) => {
   const a = clamp((s - T.impacto - 0.6) / 0.3);
   return (
     <div style={{ position: 'absolute', top: 200, left: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', opacity: a }}>
-      <div style={{ fontFamily: OSWALD, fontSize: 30, letterSpacing: 8, color: COR.osso, opacity: 0.85, textShadow: sombra }}>ATÉ AFUNDAR</div>
-      <div style={{ fontFamily: BEBAS, fontSize: 150, lineHeight: 1, color: seg <= 20 ? COR.vermelho : COR.osso, transform: `scale(${pulso})`, textShadow: sombra }}>
+      <div style={{ fontFamily: FONTES.apoio, fontSize: fs(30), letterSpacing: 8, color: COR.osso, opacity: 0.85, textShadow: sombraAtual() }}>ATÉ AFUNDAR</div>
+      <div style={{ fontFamily: FONTES.titulo, fontSize: fs(150), lineHeight: 1, color: seg <= 20 ? COR.vermelho : COR.osso, transform: `scale(${pulso})`, textShadow: sombraAtual() }}>
         00:{String(seg).padStart(2, '0')}
       </div>
     </div>
@@ -87,7 +90,7 @@ const X: React.FC<{ k: number; texto: string }> = ({ k, texto }) => {
         <line x1="12" y1="12" x2="88" y2="88" stroke={COR.vermelho} strokeWidth="13" strokeLinecap="round" strokeDasharray="108" strokeDashoffset={108 * (1 - l1)} />
         <line x1="88" y1="12" x2="12" y2="88" stroke={COR.vermelho} strokeWidth="13" strokeLinecap="round" strokeDasharray="108" strokeDashoffset={108 * (1 - l2)} />
       </svg>
-      <div style={{ marginTop: 10, fontFamily: BEBAS, fontSize: 96, color: COR.osso, background: 'rgba(6,6,6,.75)', padding: '6px 30px 0', letterSpacing: 3, opacity: clamp(k * 3 - 1) }}>{texto}</div>
+      <div style={{ marginTop: 10, fontFamily: FONTES.titulo, fontSize: fs(96), color: COR.osso, background: 'rgba(6,6,6,.75)', padding: '6px 30px 0', letterSpacing: 3, opacity: clamp(k * 3 - 1) }}>{texto}</div>
     </AbsoluteFill>
   );
 };
@@ -109,15 +112,15 @@ export const QuatroPalavras: React.FC<{ s: number }> = ({ s }) => {
   if (cenaEm(s) !== 5) return null;
   return (
     <AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center', gap: 6, paddingBottom: 120 }}>
-      <div style={{ fontFamily: OSWALD, fontSize: 44, letterSpacing: 12, color: COR.osso, opacity: clamp((s - tBloco(5)) / 0.3), textShadow: sombra, marginBottom: 20 }}>DECORA</div>
+      <div style={{ fontFamily: FONTES.apoio, fontSize: fs(44), letterSpacing: 12, color: COR.osso, opacity: clamp((s - tBloco(5)) / 0.3), textShadow: sombraAtual(), marginBottom: 20 }}>DECORA</div>
       {PALAVRAS.map((p, i) => {
         const t0 = T.palavras[i];
         const k = clamp((s - t0 + 0.05) / 0.18);
         const falando = s >= t0 && s < (T.palavras[i + 1] ?? t0 + 0.9);
         return (
           <div key={p} style={{ display: 'flex', alignItems: 'center', gap: 28, opacity: k, transform: `translateX(${(1 - easeOut(k)) * -80}px)` }}>
-            <div style={{ fontFamily: BEBAS, fontSize: 110, color: COR.vermelho, width: 90, textAlign: 'right', textShadow: sombra }}>{i + 1}</div>
-            <div style={{ fontFamily: BEBAS, fontSize: falando ? 200 : 170, color: falando ? COR.osso : 'rgba(236,230,220,.75)', letterSpacing: 4, lineHeight: 1, textShadow: sombra, width: 640 }}>{p}</div>
+            <div style={{ fontFamily: FONTES.titulo, fontSize: fs(110), color: COR.vermelho, width: 90, textAlign: 'right', textShadow: sombraAtual() }}>{i + 1}</div>
+            <div style={{ fontFamily: FONTES.titulo, fontSize: fs(falando ? 200 : 170), color: falando ? COR.osso : 'rgba(236,230,220,.75)', letterSpacing: 4, lineHeight: 1, textShadow: sombraAtual(), width: 640 }}>{p}</div>
           </div>
         );
       })}
@@ -134,8 +137,8 @@ export const Passo: React.FC<{ s: number }> = ({ s }) => {
   return (
     <div style={{ position: 'absolute', top: 440, left: 0, right: 0, display: 'flex', justifyContent: 'center', opacity: k, transform: `translateY(${(1 - easeOut(k)) * -30}px)` }}>
       <div style={{ display: 'flex', alignItems: 'stretch', boxShadow: '0 10px 40px rgba(0,0,0,.6)' }}>
-        <div style={{ background: COR.vermelho, color: COR.osso, fontFamily: BEBAS, fontSize: 76, padding: '10px 26px 0', letterSpacing: 3 }}>PASSO {n}</div>
-        <div style={{ background: COR.preto, color: COR.osso, fontFamily: BEBAS, fontSize: 76, padding: '10px 30px 0', letterSpacing: 4, border: `4px solid ${COR.vermelho}` }}>{PALAVRAS[n - 1]}</div>
+        <div style={{ background: COR.vermelho, color: COR.osso, fontFamily: FONTES.titulo, fontSize: fs(76), padding: '10px 26px 0', letterSpacing: 3 }}>PASSO {n}</div>
+        <div style={{ background: COR.preto, color: COR.osso, fontFamily: FONTES.titulo, fontSize: fs(76), padding: '10px 30px 0', letterSpacing: 4, border: `4px solid ${COR.vermelho}` }}>{PALAVRAS[n - 1]}</div>
       </div>
     </div>
   );
@@ -148,8 +151,8 @@ export const OrdemCriancas: React.FC<{ s: number }> = ({ s }) => {
     const k = clamp((s - t0) / 0.25);
     return (
       <div style={{ position: 'absolute', left: x, top: y, opacity: k, transform: `scale(${0.6 + 0.4 * easeOut(k)})`, display: 'flex', alignItems: 'center', gap: 14 }}>
-        <div style={{ width: 110, height: 110, borderRadius: 60, background: COR.vermelho, color: COR.osso, fontFamily: BEBAS, fontSize: 92, display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: 8, boxShadow: '0 0 30px rgba(227,20,31,.7)' }}>{n}</div>
-        <div style={{ fontFamily: BEBAS, fontSize: 64, color: COR.osso, textShadow: sombra, letterSpacing: 2 }}>{txt}</div>
+        <div style={{ width: 110, height: 110, borderRadius: 60, background: COR.vermelho, color: COR.osso, fontFamily: FONTES.titulo, fontSize: fs(92), display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: 8, boxShadow: '0 0 30px rgba(227,20,31,.7)' }}>{n}</div>
+        <div style={{ fontFamily: FONTES.titulo, fontSize: fs(64), color: COR.osso, textShadow: sombraAtual(), letterSpacing: 2 }}>{txt}</div>
       </div>
     );
   };
@@ -167,9 +170,9 @@ export const Ligacao: React.FC<{ s: number }> = ({ s }) => {
   const k = easeOut(clamp((s - T.soAi - 0.2) / 0.4));
   return (
     <div style={{ position: 'absolute', left: 300, top: 560, width: 480, height: 540, transform: `translateY(${(1 - k) * 600}px) rotate(-4deg)`, background: '#0d1420', borderRadius: 54, border: '10px solid #111', boxShadow: '0 30px 80px rgba(0,0,0,.7), 0 0 60px rgba(120,170,255,.25)', display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: 80 }}>
-      <div style={{ fontFamily: OSWALD, fontSize: 30, color: COR.cinza, letterSpacing: 4 }}>CHAMANDO…</div>
-      <div style={{ fontFamily: BEBAS, fontSize: 92, color: COR.osso, marginTop: 10 }}>EMERGÊNCIA</div>
-      <div style={{ fontFamily: OSWALD, fontSize: 26, color: COR.osso, opacity: 0.8, marginTop: 20, textAlign: 'center', padding: '0 40px' }}>só depois de estar fora da água</div>
+      <div style={{ fontFamily: FONTES.apoio, fontSize: fs(30), color: COR.cinza, letterSpacing: 4 }}>CHAMANDO…</div>
+      <div style={{ fontFamily: FONTES.titulo, fontSize: fs(92), color: COR.osso, marginTop: 10 }}>EMERGÊNCIA</div>
+      <div style={{ fontFamily: FONTES.apoio, fontSize: fs(26), color: COR.osso, opacity: 0.8, marginTop: 20, textAlign: 'center', padding: '0 40px' }}>só depois de estar fora da água</div>
       <div style={{ marginTop: 'auto', marginBottom: 70, width: 120, height: 120, borderRadius: 60, background: COR.vermelho }} />
     </div>
   );
@@ -183,12 +186,12 @@ export const TelaFinal: React.FC<{ s: number }> = ({ s }) => {
   return (
     <AbsoluteFill style={{ background: `rgba(6,6,6,${0.55 + 0.35 * k})`, alignItems: 'center', justifyContent: 'center', paddingBottom: 200 }}>
       <Triangulo tamanho={420} style={{ opacity: k, transform: `scale(${0.85 + 0.15 * easeOut(k)})` }} />
-      <div style={{ fontFamily: BEBAS, fontSize: 168, lineHeight: 0.95, textAlign: 'center', color: COR.osso, marginTop: 40, opacity: k, textShadow: sombra }}>
+      <div style={{ fontFamily: FONTES.titulo, fontSize: fs(168), lineHeight: 0.95, textAlign: 'center', color: COR.osso, marginTop: 40, opacity: k, textShadow: sombraAtual() }}>
         VOCÊ
         <br />
         <span style={{ color: COR.vermelho }}>SOBREVIVERIA?</span>
       </div>
-      <div style={{ fontFamily: OSWALD, fontSize: 40, color: COR.osso, opacity: k2 * 0.9, marginTop: 40, textAlign: 'center', letterSpacing: 2, padding: '0 80px' }}>
+      <div style={{ fontFamily: FONTES.apoio, fontSize: fs(40), color: COR.osso, opacity: k2 * 0.9, marginTop: 40, textAlign: 'center', letterSpacing: 2, padding: '0 80px' }}>
         COMENTA: QUAL SITUAÇÃO VOCÊ QUER NO PRÓXIMO POV?
       </div>
     </AbsoluteFill>

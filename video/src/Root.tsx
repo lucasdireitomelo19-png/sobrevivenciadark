@@ -6,5 +6,7 @@ export const Root: React.FC = () => (
   <>
     {/* Roteiro 002 · POV: seu carro caiu no rio (Short vertical) */}
     <Composition id="Short002CarroNoRio" component={Short002} durationInFrames={DURACAO_SHORT} fps={FPS} width={1080} height={1920} />
+    {/* mesmo roteiro em estilo pixel art (teste de estilo) */}
+    <Composition id="Short002Pixel" component={Short002} defaultProps={{ pixel: true }} durationInFrames={DURACAO_SHORT} fps={FPS} width={1080} height={1920} />
   </>
 );

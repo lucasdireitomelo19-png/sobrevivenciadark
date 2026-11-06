@@ -5,7 +5,7 @@ import * as THREE from 'three';
 import { MundoCarroNoRio } from './Mundo';
 import { Acabamento, Contador, Erros, Legenda, Ligacao, OrdemCriancas, Passo, QuatroPalavras, SeloPOV, TelaFinal } from './Telas';
 import { B, FIM_VIDEO, OFFSET, T, tBloco } from './diretor';
-import { carregarFontes } from '../../ui/fontes';
+import { carregarFontes, usarEstilo } from '../../ui/fontes';
 
 carregarFontes();
 
@@ -80,21 +80,46 @@ const Trilha: React.FC = () => {
   );
 };
 
-export const Short002: React.FC = () => {
+// Estilo pixel art: o 3D é renderizado em baixa resolução (1/PIXEL), ampliado sem
+// suavização e com a paleta reduzida (posterização); textos em fonte pixelada.
+export const PIXEL = 6;
+
+const FiltroPosterizar: React.FC = () => (
+  <svg width="0" height="0" style={{ position: 'absolute' }}>
+    <filter id="posterizar" colorInterpolationFilters="sRGB">
+      <feComponentTransfer>
+        <feFuncR type="discrete" tableValues="0.02 0.08 0.16 0.27 0.41 0.58 0.78 1" />
+        <feFuncG type="discrete" tableValues="0.02 0.07 0.15 0.26 0.4 0.57 0.77 1" />
+        <feFuncB type="discrete" tableValues="0.04 0.11 0.2 0.32 0.46 0.62 0.8 1" />
+      </feComponentTransfer>
+    </filter>
+  </svg>
+);
+
+export const Short002: React.FC<{ pixel?: boolean }> = ({ pixel = false }) => {
+  usarEstilo(pixel);
   const frame = useCurrentFrame();
-  const { width, height } = useVideoConfig();
+  const { width: W, height: H } = useVideoConfig();
+  const k = pixel ? PIXEL : 1;
+  const width = Math.round(W / k);
+  const height = Math.round(H / k);
   const s = frame / FPS;
   return (
     <AbsoluteFill style={{ background: '#060606' }}>
+      {pixel && <FiltroPosterizar />}
+      {pixel && <style>{'canvas { image-rendering: pixelated; }'}</style>}
+      <div style={{ position: 'absolute', left: 0, top: 0, width, height, transform: `scale(${k})`, transformOrigin: '0 0', filter: pixel ? 'url(#posterizar)' : undefined }}>
       <ThreeCanvas
         width={width}
         height={height}
-        gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.15, outputColorSpace: THREE.SRGBColorSpace }}
+        dpr={1}
+        gl={{ antialias: !pixel, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: pixel ? 1.7 : 1.15, outputColorSpace: THREE.SRGBColorSpace }}
         camera={{ fov: 60, near: 0.03, far: 1500, position: [0, 10, 30] }}
         style={{ filter: 'contrast(1.08) saturate(0.9)' }}
       >
         <MundoCarroNoRio seg={s} />
       </ThreeCanvas>
+      </div>
       <Acabamento s={s} frame={frame} />
       <SeloPOV s={s} />
       <Contador s={s} />
