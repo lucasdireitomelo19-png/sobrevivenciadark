@@ -110,14 +110,14 @@ Canal: Sobrevivência Dark · Data: 05/11/2026 · Formato: **POV de como sobrevi
 4. As Primeiras 24 Horas Depois de um Ataque Nuclear
 5. Entre, Fique Dentro, Fique Informado: A Regra Que Salva Milhões
 
-**Gancho:** "POV: um clarão branco no céu de São Paulo. Você tem minutos antes da poeira radioativa começar a cair."
+**Gancho:** "POV: um clarão branco no céu de São Paulo. A poeira radioativa pode começar a cair em 10 minutos ou mais."
 
 **O erro que mata:** ficar na rua olhando, ou entrar no carro e tentar fugir no meio da precipitação radioativa.
 
 **Passo a passo**
-1. **Não olhe para o clarão.** Deite e proteja a cabeça. Está na orientação oficial de explosão nuclear [F2]. ⚠️ Reconfirmar o texto exato na página.
+1. **Se estiver ao ar livre, deite de bruços e espere a onda de choque passar** [F2]. ✅ Conferido pelo Roteirista em 06/11. "Não olhe para o clarão" foi cortado por não estar nas fontes.
 2. **Entre no prédio mais sólido e mais fundo que conseguir** (subsolo, ou o meio de um prédio de concreto) e fique longe das janelas [F2]. ⚠️
-3. **Fique lá dentro por pelo menos 24 horas,** a não ser que as autoridades mandem sair. A radiação da precipitação cai rápido nas primeiras horas [F2]. ⚠️
+3. **Entre em até 10 minutos e fique lá dentro por pelo menos 24 horas,** a não ser que as autoridades mandem sair. O Ready.gov fala em "10 minutos ou mais" antes de a precipitação começar [F2]. ✅
 4. **Tire a roupa de cima com cuidado,** sem sacudir. Isso remove até 90% do material radioativo [F3]. ✅
 5. **Lave o corpo e o cabelo com sabão e xampu, sem condicionador,** porque o condicionador gruda o material radioativo no cabelo [F3]. ✅
 
@@ -127,7 +127,7 @@ Canal: Sobrevivência Dark · Data: 05/11/2026 · Formato: **POV de como sobrevi
 
 **Thumbnails**
 1. Cogumelo nuclear atrás do skyline de São Paulo. Texto: "VOCÊ TEM MINUTOS".
-2. Frasco de condicionador com um X vermelho. Texto: "ISSO PODE TE MATAR".
+2. Frasco de condicionador com um X vermelho. Texto: "NÃO USE ISSO".
 3. Pessoa num porão olhando o relógio. Texto: "24 HORAS".
 
 **Palavras-chave:** bomba nuclear na sua cidade · como sobreviver a ataque nuclear · o que fazer explosão nuclear · fallout · guerra nuclear POV
@@ -551,7 +551,7 @@ Canal: Sobrevivência Dark · Data: 05/11/2026 · Formato: **POV de como sobrevi
   - [Good Morning America](https://goodmorningamerica.com/living/story/live-gma-escape-car-sinking-water-110460223)
   - [Montreal Gazette](https://www.pressreader.com/canada/montreal-gazette/20220513/281728388114075)
   - [Edmonton Journal](https://www.pressreader.com/canada/edmonton-journal/20220512/281642488766100)
-- **[F2] Explosão nuclear: "Get inside, stay inside, stay tuned".** Fonte oficial: Ready.gov / FEMA, em ready.gov/nuclear-explosion. ⚠️ Página não aberta nesta pesquisa; conferir.
+- **[F2] Explosão nuclear: "Get inside, stay inside, stay tuned".** Fonte oficial: [Ready.gov / FEMA](https://www.ready.gov/nuclear-explosion). ✅ Conferida pelo Roteirista em 06/11/2026.
 - **[F3] Descontaminação radioativa (oficial).**
   - [CDC: Decontamination for Yourself and Others](https://www.cdc.gov/radiation-emergencies/infographic/decontamination.html)
   - [CDC: Self-decontaminate](https://cdc.gov/radiation-emergencies/prevention/self-decontaminate.html)
